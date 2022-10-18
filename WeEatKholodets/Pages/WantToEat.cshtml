@@ -1,0 +1,16 @@
+﻿@page
+@model WantToEatModel
+@{
+    @ViewData["Kholodets"]
+}
+
+@if(Model.DidCustomerEatToday != true){
+    <form method="post">
+        <input type="text">
+        <button type="submit" class="btn btn-primary">I ate kholodets today</button>
+    </form>
+} else{
+    <h1>You have already eaten kholodets today</h1>
+}
+
+

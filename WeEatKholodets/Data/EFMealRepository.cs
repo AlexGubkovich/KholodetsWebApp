@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using WeEatKholodets.Data;
@@ -19,17 +20,37 @@ namespace WeEatKholodets.Data
             this.userManager = userManager;
         }
 
-        public async void AddMealAsync(string userId)
+        public async Task AddMealAsync(ClaimsPrincipal claimsPrincipal)
         {
             context.Meals.Add(new Meal
             {
                 Date = DateTime.Now,
-                User = await userManager.FindByIdAsync(userId)
+                User = await userManager.GetUserAsync(claimsPrincipal)
             });
+            await context.SaveChangesAsync();
         }
         public List<Meal>? GetMealsByUserId(string userId)
         {
-            return context.Meals.Where(m => m.User.Id == userId).ToList();
+            IQueryable<Meal> meals = context.Meals.Where(m => m.User.Id == userId);
+            return meals.ToList();
+        }
+
+        public Meal? GetLastMealByUserId(string userId)
+        {
+            var meals = context.Meals.Where(m => m.User.Id == userId).ToList();
+            if(meals.Count > 0)
+            {
+                return meals.Last();
+            }
+            else
+            {
+                return meals.FirstOrDefault();
+            }
+        }
+
+        public List<Meal> GetAllMeals()
+        {
+            return context.Meals.ToList();
         }
     }
 }

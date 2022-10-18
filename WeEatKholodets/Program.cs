@@ -13,7 +13,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddScoped<IMealRepository, EFMealRepository>();
+builder.Services.AddTransient<IMealRepository, EFMealRepository>();
 builder.Services.AddAuthentication()
     .AddGoogle(options =>
     {

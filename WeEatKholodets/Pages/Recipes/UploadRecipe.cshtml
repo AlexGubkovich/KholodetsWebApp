@@ -1,0 +1,62 @@
+﻿@page 
+@model UploadRecipeModel
+@{
+    ViewData["Title"] = "Upload Page";
+}
+
+<div class="row g-3 align-items-center">
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <div class="validation" asp-validation-summary="All"></div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for=" Recipe.Title">Title</label>
+            <input class="form-control" type="text" asp-for="Recipe.Title" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="Recipe.Description">Description</label>
+            <input class="form-control" type="text" asp-for="Recipe.Description" />
+        </div>
+        <div class="mb-3">
+            <button id="adding" type="button">Add ingredient</button>
+            <button id="removing" type="button">Remove ingredient</button>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="Recipe.Ingredients">Ingredients</label>
+            <div class="ingredients"></div>
+            <textarea id="ingredients" hidden asp-for="Recipe.Ingredients"></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="Recipe.CookingMethod">How to cook?</label>
+            <textarea class="form-control" asp-for="Recipe.CookingMethod"></textarea>
+        </div>
+        <div class="mb-3">
+            <input class="form-control" multiple asp-for="Recipe.Files" />
+        </div>
+        <button id="send" type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+    </form>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        let IngredientsRows = $('#ingredients').val().split('\n')
+        for (row of IngredientsRows)
+            if(row != '')
+                $('<input />', { value: row,type: 'text' }).appendTo('.ingredients')
+    });
+    $('#adding').click(function(){
+        $('<input />').appendTo('.ingredients')
+    });
+    $('#removing').click(function(){
+        $('.ingredients input:last-child').remove()
+    });
+    $('#send').click(function(){
+        let textIngrigients = "";
+        for (let elem of $('.ingredients input'))
+            textIngrigients += elem.value + '\n';
+        $('#ingredients').empty()   
+        $('#ingredients').append(textIngrigients)
+    })
+</script>

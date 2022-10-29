@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeEatKholodets.Data;
 
@@ -11,9 +12,10 @@ using WeEatKholodets.Data;
 namespace WeEatKholodets.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221024140201_RecipeAndPhoto")]
+    partial class RecipeAndPhoto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -263,12 +265,15 @@ namespace WeEatKholodets.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.Property<int>("RecipeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RecipeId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Photos");
                 });
@@ -376,13 +381,13 @@ namespace WeEatKholodets.Migrations
 
             modelBuilder.Entity("WeEatKholodets.Models.Photo", b =>
                 {
-                    b.HasOne("WeEatKholodets.Models.Recipe", "Recipe")
+                    b.HasOne("WeEatKholodets.Models.Recipe", "Product")
                         .WithMany("Photos")
-                        .HasForeignKey("RecipeId")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Recipe");
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("WeEatKholodets.Models.Recipe", b =>

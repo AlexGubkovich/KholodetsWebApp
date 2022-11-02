@@ -1,4 +1,25 @@
 ﻿@page
 @model IndexModel
 @{
+    ViewData["Title"] = "Recipes";
+}
+<partial name="_RecipeNavMenuPartial"  view-data="ViewData"/>
+<div>
+    <form>
+        <p>
+            Title: <input type="text" asp-for="SearchString" />
+            <input type="submit" value="Search" />
+        </p>
+    </form>
+</div>
+
+@if(Model.IsTop){
+    <h1>Top:</h1>
+}
+@foreach(var recipe in Model.RecipeShorts){
+    <div>
+        <h2>@recipe.title</h2>
+        <a asp-page="/Recipes/ResipeDetails" asp-route-Id="@recipe.id">Folow me</a>
+        <p>@recipe.numberOfViews</p>
+    </div>
 }

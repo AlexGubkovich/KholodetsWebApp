@@ -29,7 +29,7 @@ namespace WeEatKholodets.Pages.Recipes
                 return Page();
 
             List<Photo> photos = new List<Photo>();
-            if (Recipe.Files?.Count > 0)
+            if (Recipe.Files?.Count > 0) 
             {
                 foreach (var formFile in Recipe.Files)
                 {

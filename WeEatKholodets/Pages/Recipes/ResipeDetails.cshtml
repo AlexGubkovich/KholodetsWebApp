@@ -1,0 +1,24 @@
+﻿@page 
+@model WeEatKholodets.Pages.Recipes.TopModel
+@{
+    ViewData["Title"] = "Top";
+}
+<partial name="_RecipeNavMenuPartial" />
+@if(Model.Recipe != null){
+    <div>
+        <h2>@Model.Recipe.Title</h2>
+        <p>@Model.Recipe.Description</p>
+        <ul>
+            @foreach(var ingred in Model.Recipe.Ingredients.Split("\n")){
+                @if(ingred != string.Empty){
+                    <li>@ingred</li>
+                }
+            }
+        </ul>
+        <p>@Model.Recipe.CookingMethod</p>
+    </div>
+} 
+else{
+
+}
+

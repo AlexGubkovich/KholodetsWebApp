@@ -1,13 +1,15 @@
 ﻿<div>
     <ul>
-        <li>
-            <a asp-page="/Recipes/Index">Recipes</a>
-        </li>
-        <li>
-            <a asp-page="/Recipes/Search">Search</a>
-        </li>
-        <li>
-            <a asp-page="/Recipes/Top">Top</a>
-        </li>
+        @if (ViewData["Title"]!.ToString() == "Recipes")
+        {
+            <li>
+                <a asp-page="/Recipes/UploadRecipe">Add your recipe</a>
+            </li>
+        }
+        else{
+            <li>
+                <a asp-page="/Recipes/Index">Recipes</a>
+            </li>
+        }
     </ul>
 </div>

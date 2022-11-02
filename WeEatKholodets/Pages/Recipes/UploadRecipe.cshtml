@@ -3,19 +3,22 @@
 @{
     ViewData["Title"] = "Upload Page";
 }
+<partial name="_RecipeNavMenuPartial" />
 
 <div class="row g-3 align-items-center">
     <form method="post" enctype="multipart/form-data">
         <div class="mb-3">
-            <div class="validation" asp-validation-summary="All"></div>
+            <div class="validation text-danger" asp-validation-summary="All"></div>
         </div>
         <div class="mb-3">
             <label class="form-label" asp-for=" Recipe.Title">Title</label>
             <input class="form-control" type="text" asp-for="Recipe.Title" />
+            <span class="validation text-danger" asp-validation-for="Recipe.Title"></span>
         </div>
         <div class="mb-3">
             <label class="form-label" asp-for="Recipe.Description">Description</label>
             <input class="form-control" type="text" asp-for="Recipe.Description" />
+            <span class="validation text-danger" asp-validation-for="Recipe.Description"></span>
         </div>
         <div class="mb-3">
             <button id="adding" type="button">Add ingredient</button>
@@ -25,18 +28,26 @@
             <label class="form-label" asp-for="Recipe.Ingredients">Ingredients</label>
             <div class="ingredients"></div>
             <textarea id="ingredients" hidden asp-for="Recipe.Ingredients"></textarea>
+            <span class="validation text-danger" asp-validation-for="Recipe.Ingredients"></span>
         </div>
         <div class="mb-3">
             <label class="form-label" asp-for="Recipe.CookingMethod">How to cook?</label>
             <textarea class="form-control" asp-for="Recipe.CookingMethod"></textarea>
+            <span class="validation text-danger" asp-validation-for="Recipe.CookingMethod"></span>
         </div>
         <div class="mb-3">
             <input class="form-control" multiple asp-for="Recipe.Files" />
+            <span class="validation text-danger" asp-validation-for="Recipe.Files"></span>
         </div>
         <button id="send" type="submit" class="btn btn-primary btn-block mb-4">Send</button>
     </form>
 </div>
 
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script>

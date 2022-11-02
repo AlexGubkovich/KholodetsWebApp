@@ -11,7 +11,7 @@ namespace WeEatKholodets.Models
     public class User : IdentityUser
     {
         [Key]
-        public new string Id = null!;
+        public new string Id { get; set; } = null!;
         public int Year { get; set; }
         public List<Meal>? Meals { get; set; }
     }

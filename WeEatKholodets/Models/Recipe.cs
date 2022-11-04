@@ -12,7 +12,8 @@ namespace WeEatKholodets.Models
         [Required]
         public string Title { get; set; } = string.Empty;
 
-        public string? Description { get; set; }
+        [Required]
+        public string Description { get; set; } = string.Empty;
 
         [Required]
         public string Ingredients { get; set; } = string.Empty;
@@ -20,12 +21,13 @@ namespace WeEatKholodets.Models
         [Required]
         public string CookingMethod { get; set; } = string.Empty;
 
-        public int NumberOfViews { get; set; }
+        public int ViewCount { get; set; }
 
         public List<Photo>? Photos { get; set; } = null!;
 
         [FromForm]
         [NotMapped]
+        [Required]
         public IFormFileCollection? Files { get; set; } = null!;
     }
 }

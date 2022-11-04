@@ -32,13 +32,13 @@ namespace WeEatKholodets.Pages.Recipes
                     IsTop = false;
                 }
                 RecipeShorts = await recipeShorts
-                    .OrderBy(p => p.NumberOfViews)
+                    .OrderByDescending(p => p.ViewCount)
                     .Take(5)
-                    .Select(r => new RecipeShort(r.Id, r.Title, r.NumberOfViews))
+                    .Select(r => new RecipeShort(r.Id, r.Title, r.ViewCount))
                     .ToListAsync();
             }
         }
     }
 
-    public record RecipeShort(int id, string title, int numberOfViews);
+    public record RecipeShort(int id, string title, int viewCount);
 }

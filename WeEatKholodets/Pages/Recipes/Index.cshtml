@@ -3,23 +3,39 @@
 @{
     ViewData["Title"] = "Recipes";
 }
-<partial name="_RecipeNavMenuPartial"  view-data="ViewData"/>
-<div>
-    <form>
-        <p>
-            Title: <input type="text" asp-for="SearchString" />
-            <input type="submit" value="Search" />
-        </p>
-    </form>
+
+<div class="row">
+    <div class="col-2">
+       <partial name="_RecipeNavMenuPartial"  view-data="ViewData"/>
+    </div>
+    <div class="col-6">
+        <form>
+            <div class="input-group md-3">
+                <input asp-for="SearchString" type="text" class="form-control" placeholder="Search" aria-label="Search" id="searchInput" aria-describedby="button-search">
+                <button class="btn btn-outline" type="submit" id="button-search-clean"><img src="~/img/clear.svg" alt="Clear"></button>
+                <button class="btn btn-outline" type="submit" id="button-search"><img src="~/img/search.svg" alt="Search"></button>
+            </div>
+        </form>
+        @if(Model.IsTop){
+            <h1 class="">Top:</h1>
+        }
+        @foreach(var recipe in Model.RecipeShorts){
+            <div class="row gy-4">
+                <h3><a class="nav-link text-dark" asp-page="/Recipes/ResipeDetails" asp-route-Id="@recipe.id">@recipe.title</a></h3>
+                <div class="col">
+                    <small class="text-muted">@recipe.viewCount</small>
+                    <img src="~/img/eye.svg" alt="" srcset="">
+                </div>
+            </div>
+        }
+    </div>
 </div>
 
-@if(Model.IsTop){
-    <h1>Top:</h1>
-}
-@foreach(var recipe in Model.RecipeShorts){
-    <div>
-        <h2>@recipe.title</h2>
-        <a asp-page="/Recipes/ResipeDetails" asp-route-Id="@recipe.id">Folow me</a>
-        <p>@recipe.numberOfViews</p>
-    </div>
-}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+    $('#button-search-clean').click(function(){
+        $('#searchInput').val('')
+    })
+</script>
+
+

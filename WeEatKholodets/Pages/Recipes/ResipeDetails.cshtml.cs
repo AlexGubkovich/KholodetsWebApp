@@ -29,7 +29,7 @@ namespace WeEatKholodets.Pages.Recipes
                 return NotFound();
             }
 
-            Recipe.NumberOfViews++;
+            Recipe.ViewCount++;
             context.Recipes.Update(Recipe);
             await context.SaveChangesAsync();
 

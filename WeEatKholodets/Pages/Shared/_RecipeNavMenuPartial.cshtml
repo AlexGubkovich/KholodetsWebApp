@@ -1,14 +1,14 @@
 ﻿<div>
-    <ul>
+    <ul class="nav flex-column nav-pills">
         @if (ViewData["Title"]!.ToString() == "Recipes")
         {
-            <li>
-                <a asp-page="/Recipes/UploadRecipe">Add your recipe</a>
+            <li class="nav-item">
+                <a class="btn" style="background-color: #7db1ff;"  asp-page="/Recipes/UploadRecipe"> Add your recipe</a>
             </li>
         }
         else{
-            <li>
-                <a asp-page="/Recipes/Index">Recipes</a>
+            <li class="nav-item">
+                <a class="nav-link" asp-page="/Recipes/Index"><img src="~/img/arrow-left.svg" alt="" srcset=""></a>
             </li>
         }
     </ul>

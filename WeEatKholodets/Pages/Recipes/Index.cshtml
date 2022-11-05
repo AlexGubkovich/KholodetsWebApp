@@ -2,32 +2,61 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Recipes";
+    bool firstPage = Model.PagingInfo.CurrentPage == 1 ? true : false;
+    bool lastPage = Model.PagingInfo.CurrentPage == Model.PagingInfo.TotalPages ? true : false;
 }
-
 <div class="row">
     <div class="col-2">
        <partial name="_RecipeNavMenuPartial"  view-data="ViewData"/>
     </div>
     <div class="col-6">
         <form>
-            <div class="input-group md-3">
+            <div class="input-group md-3 mb-3">
                 <input asp-for="SearchString" type="text" class="form-control" placeholder="Search" aria-label="Search" id="searchInput" aria-describedby="button-search">
-                <button class="btn btn-outline" type="submit" id="button-search-clean"><img src="~/img/clear.svg" alt="Clear"></button>
+                <button class="btn btn-outline" type="button" id="button-search-clean"><img src="~/img/clear.svg" alt="Clear"></button>
                 <button class="btn btn-outline" type="submit" id="button-search"><img src="~/img/search.svg" alt="Search"></button>
             </div>
         </form>
         @if(Model.IsTop){
-            <h1 class="">Top:</h1>
+            <h1 class="display-6 ms-3 mt-0 mb-3">Most popular:</h1>
         }
         @foreach(var recipe in Model.RecipeShorts){
-            <div class="row gy-4">
-                <h3><a class="nav-link text-dark" asp-page="/Recipes/ResipeDetails" asp-route-Id="@recipe.id">@recipe.title</a></h3>
-                <div class="col">
-                    <small class="text-muted">@recipe.viewCount</small>
-                    <img src="~/img/eye.svg" alt="" srcset="">
+            <div class="bg-cyan rounded-3 mb-4 pb-3 position-relative">
+                <h3><a class=" stretched-link nav-link text-dark" asp-page="/Recipes/ResipeDetails" asp-route-Id="@recipe.id">@recipe.title</a></h3>
+                <div class="row ">
+                    <div class="col"></div>
+                    <div class="col-9  text-truncate align-content-center">
+                        <span class="user-select-none text-muted text-truncate flex-wrap">@recipe.description</span>
+                    </div>
+                    <div class="col-2">
+                        <small class="text-muted">@recipe.viewCount</small>
+                        <img src="~/img/eye.svg" alt="" srcset="">
+                    </div>
                 </div>
             </div>
         }
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <ul class="pagination">
+                    <li class='page-item @(firstPage==true?"disabled":"")'>
+                        <a class="page-link" aria-label="Previous" asp-route-recipePage=@(Model.PagingInfo.CurrentPage-1) >
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    @for (int i = 1; i < Model.PagingInfo.TotalPages + 1; i++)
+                    {
+                        <li class='page-item @(Model.PagingInfo.CurrentPage==i?"active":"")'>
+                            <a class="page-link" asp-route-recipePage=@i>@i</a>
+                        </li>
+                    }
+                    <li class='page-item @(lastPage==true?"disabled":"")'>
+                        <a class="page-link " aria-label="Next" asp-route-recipePage=@(Model.PagingInfo.CurrentPage+1)>
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 

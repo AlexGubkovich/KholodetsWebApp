@@ -10,37 +10,40 @@
     <div class="col-7">
         <div class="row g-3 align-items-center">
             <form method="post" enctype="multipart/form-data">
-                @* <div class="mb-3">
-                    <div class="validation text-danger" asp-validation-summary="All"></div>
-                </div> *@
                 <div class="mb-3">
-                    <label class="form-label" asp-for=" Recipe.Title">Title</label>
-                    <input class="form-control" type="text" asp-for="Recipe.Title" />
+                    <div class="form-floating">
+                        <input class="form-control" type="text" asp-for="Recipe.Title" />
+                        <label class="form-label" asp-for=" Recipe.Title">Title</label>
+                    </div>
                     <span class="validation text-danger" asp-validation-for="Recipe.Title"></span>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" asp-for="Recipe.Description">Description</label>
-                    <input class="form-control" type="text" asp-for="Recipe.Description" />
+                    <div class="form-floating">
+                        <input class="form-control" type="text" asp-for="Recipe.Description" />
+                        <label class="form-label" asp-for="Recipe.Description">Description</label>
+                    </div>
                     <span class="validation text-danger" asp-validation-for="Recipe.Description"></span>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" asp-for="Recipe.Ingredients">Ingredients</label>
+                    <label class="form-label" asp-for="Recipe.Ingredients"><u>Ingredients</u></label>
                     <div class="ingredients">
                     </div>
                     <textarea id="ingredients" hidden asp-for="Recipe.Ingredients"></textarea>
                 </div>
                 <div class="mb-3">
-                    <button class="btn" id="adding" type="button">Add ingredient</button>
-                    <button class="btn" id="removing" type="button">Remove ingredient</button>
+                    <button class="btn btn-secondary" id="adding" type="button">Add ingredient</button>
+                    <button class="btn btn-danger" id="removing" type="button">Remove ingredient</button>
                     <span class="validation text-danger" asp-validation-for="Recipe.Ingredients"></span>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" asp-for="Recipe.CookingMethod">How to cook?</label>
-                    <textarea class="form-control" asp-for="Recipe.CookingMethod"></textarea>
+                    <div class="form-floating">
+                        <textarea class="form-control" asp-for="Recipe.CookingMethod" style="height: 100px"></textarea>
+                        <label class="form-label" asp-for="Recipe.CookingMethod">How to cook?</label>
+                    </div>
                     <span class="validation text-danger" asp-validation-for="Recipe.CookingMethod"></span>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" asp-for="Recipe.Files">Photos</label>
+                    <label class="form-label" asp-for="Recipe.Files"><u>Photos</u></label>
                     <input class="form-control" multiple asp-for="Recipe.Files" />
                     <span class="validation text-danger" asp-validation-for="Recipe.Files"></span>
                 </div>

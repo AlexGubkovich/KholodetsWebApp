@@ -19,8 +19,10 @@ namespace WeEatKholodets.Pages.Recipes
         public string? SearchString { get; set; }
 
         public bool IsTop { get; set; } = true;
+        public PagingInfo PagingInfo { get; set; } = default!;
+        private int PageSize = 2;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int recipePage = 1)
         {
             if(context.Recipes != null)
             {
@@ -33,12 +35,27 @@ namespace WeEatKholodets.Pages.Recipes
                 }
                 RecipeShorts = await recipeShorts
                     .OrderByDescending(p => p.ViewCount)
-                    .Take(5)
-                    .Select(r => new RecipeShort(r.Id, r.Title, r.ViewCount))
+                    .Skip((recipePage - 1) * PageSize)
+                    .Take(PageSize)
+                    .Select(r => new RecipeShort(r.Id, r.Title, r.Description, r.ViewCount))
                     .ToListAsync();
+                PagingInfo = new PagingInfo{
+                    CurrentPage = recipePage,
+                    ItemsPerPage = PageSize,
+                    TotalItems = string.IsNullOrEmpty(SearchString) ? context.Recipes.Count() : 
+                        context.Recipes
+                            .Where(s => s.Title.Contains(SearchString)).Count()
+                };
             }
         }
     }
+    public class PagingInfo {
+        public int TotalItems { get; set; }
+        public int ItemsPerPage { get; set; }
+        public int CurrentPage { get; set; }
 
-    public record RecipeShort(int id, string title, int viewCount);
+        public int TotalPages =>
+            (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage);
+    }
+    public record RecipeShort(int id, string title, string description, int viewCount);
 }

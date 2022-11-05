@@ -28,8 +28,13 @@ namespace WeEatKholodets.Pages.Recipes
             {
                 return NotFound();
             }
+ 
+            string queryString = HttpContext.Request.QueryString.ToString();
+            if(HttpContext.Session.GetString("VisitePage") != queryString){
+                Recipe.ViewCount++;
+                HttpContext.Session.SetString("VisitePage", queryString);
+            }
 
-            Recipe.ViewCount++;
             context.Recipes.Update(Recipe);
             await context.SaveChangesAsync();
 

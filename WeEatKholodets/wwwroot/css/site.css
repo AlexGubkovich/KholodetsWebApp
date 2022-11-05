@@ -20,12 +20,27 @@ body {
 .btn:focus {
   box-shadow: none; 
 }
-input:focus {
-  box-shadow: none; 
-}
+
 
 .ingredients input{
   margin-bottom: 1em;
+}
+
+.bg-cyan{
+  background-color: #9eeaf9;
+}
+
+.navbar a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .3s;
+}
+
+.navbar a:hover {
+  background-size: 100% 2px;
 }
 
 .footer {

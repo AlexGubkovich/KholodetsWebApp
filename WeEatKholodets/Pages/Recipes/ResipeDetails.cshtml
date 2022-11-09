@@ -1,7 +1,8 @@
 ﻿@page 
-@model WeEatKholodets.Pages.Recipes.TopModel
+@model RecipeDetails
 @{
-    ViewData["Title"] = "Top";
+    ViewData["Title"] = "Recipe Details";
+    var activeImage = true;
 }
 <div class="row">
     <div class="col-2">
@@ -9,21 +10,51 @@
     </div>
     <div class="col-6">
         @if(Model.Recipe != null){
-            <div>
-                <h2>@Model.Recipe.Title</h2>
-                <p>@Model.Recipe.Description</p>
-                <ul>
-                    @foreach(var ingred in Model.Recipe.Ingredients.Split("\n")){
-                        @if(ingred != string.Empty){
-                            <li>@ingred</li>
+            <div class="">
+                <h1 class="display-4 mb-3">@Model.Recipe.Title</h1>
+                <div class="row ms-auto">
+                    <div id="carouselExampleControls" class=" mb-3 carousel slide carousel-fade col-10" data-bs-ride="carousel">
+                        <div class="carousel-inner col-10 mx-auto">
+                            @foreach (var item in @Model.Images)
+                            {
+                                <div class='carousel-item @(activeImage ? "active" : "") ratio' style="--bs-aspect-ratio: 80%;">
+                                    <img src="@item" class="d-block w-100 rounded-3" alt="...">
+                                </div>
+                                activeImage = false;
+                            }
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Предыдущий</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class=" carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Следующий</span>
+                        </button>
+                    </div>                
+                </div>
+                <div class="mb-3">
+                    <h1 class="display-6">Description</h1>
+                    <p>@Model.Recipe.Description</p>
+                </div>
+                <div class="mb-3">
+                    <h1 class="display-6">Ingredients</h1>
+                    <ul class="list-group list-group-flush">
+                        @foreach(var ingred in Model.Recipe.Ingredients.Split("\n")){
+                            @if(ingred != string.Empty){
+                                <li class="list-group-item">@ingred</li>
+                            }
                         }
-                    }
-                </ul>
-                <p>@Model.Recipe.CookingMethod</p>
+                    </ul>
+                </div>
+                <div class="mb-3">
+                    <h1 class="display-6">Method of cooking</h1>
+                    <p>@Model.Recipe.CookingMethod</p>
+                </div>
             </div>
         } 
         else{
-
+            <p class="lead text-center">Not found</p>
         }
     </div>
 </div>

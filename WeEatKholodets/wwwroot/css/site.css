@@ -26,10 +26,6 @@ body {
   margin-bottom: 1em;
 }
 
-.bg-cyan{
-  background-color: #9eeaf9;
-}
-
 .navbar a {
   text-decoration: none;
   background-image: linear-gradient(currentColor, currentColor);
@@ -41,6 +37,23 @@ body {
 
 .navbar a:hover {
   background-size: 100% 2px;
+}
+
+#carouselExampleControls{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.carousel-control-prev {
+  margin-left: -45px;
+}
+
+.carousel-control-next {
+  margin-right: -45px;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  filter: invert(100%);
 }
 
 .footer {

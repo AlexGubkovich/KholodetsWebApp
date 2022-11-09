@@ -22,7 +22,7 @@ namespace WeEatKholodets.Pages
 
         public bool DidCustomerEatToday = false;
 
-        public void OnGetAsync()
+        public void OnGet()
         {
             var userId = userManager.GetUserId(User);
             Meal? lastMeal = mealRepository.GetLastMealByUserId(userId);
@@ -32,7 +32,7 @@ namespace WeEatKholodets.Pages
             }
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             await mealRepository.AddMealAsync(HttpContext.User);
             return RedirectToPage();

@@ -14,5 +14,6 @@ namespace WeEatKholodets.Models
         public new string Id { get; set; } = null!;
         public int Year { get; set; }
         public List<Meal>? Meals { get; set; }
+        public List<Recipe>? FavoriteRecipe { get; set; }
     }
 }

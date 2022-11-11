@@ -12,7 +12,14 @@
             </ul>
         }
         else{
-            <button class="nav-link" onclick="window.history.back()"><img src="~/img/arrow-left.svg" alt="" srcset=""></button>
+            <button class="nav-link"  onclick="window.history.back()"><img src="~/img/arrow-left.svg" alt="" srcset=""></button>
         }
     </ul>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        if(document.referrer == document.URL)
+        history.go(-1)
+    })
+</script>

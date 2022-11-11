@@ -11,19 +11,27 @@
         <h1 class="display-6 ms-3 mt-0 mb-3">Favorite recipes:</h1>
         @if(@Model.FavoriteRecipes.Count > 0){
             @foreach(var recipe in Model.FavoriteRecipes){
-                <div class="border border-info rounded-3 mb-4 pb-3 position-relative">
-                    <h3><a class="stretched-link nav-link text-dark" asp-page="/Recipes/ResipeDetails" asp-route-Id="@recipe.Id">@recipe.Title</a></h3>
-                    <div class="row ">
-                        <div class="col"></div>
-                        <div class="col-9  text-truncate align-content-center">
-                            <span class="user-select-none text-muted text-truncate flex-wrap">@recipe.Description</span>
+                <div class="row">
+                    <div class="border col-11 border-primary rounded-3 mb-4 pb-3 position-relative" style="">
+                        <h3><a class="stretched-link nav-link text-dark" asp-page="/Recipes/ResipeDetails" asp-route-Id="@recipe.Id">@recipe.Title</a></h3>
+                        <div class="row ">
+                            <div class="col"></div>
+                            <div class="col-9  text-truncate align-content-center">
+                                <span class="user-select-none text-muted text-truncate flex-wrap">@recipe.Description</span>
+                            </div>
+                            <div class="col-2">
+                                <small class="text-muted">@recipe.ViewCount</small>
+                                <img src="~/img/eye.svg" alt="" srcset="">
+                            </div>
                         </div>
-                        <div class="col-2">
-                            <small class="text-muted">@recipe.ViewCount</small>
-                            <img src="~/img/eye.svg" alt="" srcset="">
+                    </div>
+                    <div class="col align-self-center ">
+                        <div class="vibro col-1">
+                            <img  src="~/img/search.svg" alt="" srcset="">
                         </div>
                     </div>
                 </div>
+                
             }
         } 
         else{

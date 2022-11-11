@@ -22,8 +22,11 @@ namespace WeEatKholodets.Pages.Recipes
         public PagingInfo PagingInfo { get; set; } = default!;
         private int PageSize = 2;
 
-        public async Task OnGetAsync(int recipePage = 1)
+        public async Task OnGetAsync(int recipePage = 1, string? searchString = "")
         {
+            if(string.IsNullOrEmpty(SearchString)){
+                SearchString = searchString;
+            }
             if(context.Recipes != null)
             {
                 var recipeShorts = from r in context.Recipes

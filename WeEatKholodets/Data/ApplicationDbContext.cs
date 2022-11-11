@@ -19,10 +19,10 @@ namespace WeEatKholodets.Data
         {
             base.OnModelCreating(builder);
 
-            //builder.Entity<Recipe>().Property(p => p.Ingredients)
-            //    .HasConversion(
-            //        v => JsonConvert.SerializeObject(v),
-            //        v => (List<string>)JsonConvert.DeserializeObject(v)!);
+            builder.Entity<Recipe>()
+                .HasMany(p => p.Users)
+                .WithMany(p => p.FavoriteRecipes)
+                .UsingEntity(j => j.ToTable("UserRecipes"));
         }
     }
 }

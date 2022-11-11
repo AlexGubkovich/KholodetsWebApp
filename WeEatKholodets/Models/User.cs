@@ -10,10 +10,10 @@ namespace WeEatKholodets.Models
 {
     public class User : IdentityUser
     {
-        [Key]
-        public new string Id { get; set; } = null!;
+        // [Key]
+        // public new string Id { get; set; } = null!;
         public int Year { get; set; }
         public List<Meal>? Meals { get; set; }
-        public List<Recipe>? FavoriteRecipe { get; set; }
+        public List<Recipe> FavoriteRecipes { get; set; } = new List<Recipe>();
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeEatKholodets.Data;
 
@@ -11,9 +12,10 @@ using WeEatKholodets.Data;
 namespace WeEatKholodets.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221110113824_FavoriteRecipeUpdate2")]
+    partial class FavoriteRecipeUpdate2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -232,13 +234,13 @@ namespace WeEatKholodets.Migrations
 
             modelBuilder.Entity("RecipeUser", b =>
                 {
-                    b.Property<int>("FavoriteRecipesId")
+                    b.Property<int>("FavoriteRecipeId")
                         .HasColumnType("int");
 
                     b.Property<string>("UsersId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("FavoriteRecipesId", "UsersId");
+                    b.HasKey("FavoriteRecipeId", "UsersId");
 
                     b.HasIndex("UsersId");
 
@@ -385,7 +387,7 @@ namespace WeEatKholodets.Migrations
                 {
                     b.HasOne("WeEatKholodets.Models.Recipe", null)
                         .WithMany()
-                        .HasForeignKey("FavoriteRecipesId")
+                        .HasForeignKey("FavoriteRecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

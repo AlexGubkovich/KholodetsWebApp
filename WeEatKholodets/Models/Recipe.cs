@@ -29,5 +29,7 @@ namespace WeEatKholodets.Models
         [NotMapped]
         [Required]
         public IFormFileCollection? Files { get; set; } = null!;
+
+        public List<User> Users { get; set; } = new List<User>();
     }
 }

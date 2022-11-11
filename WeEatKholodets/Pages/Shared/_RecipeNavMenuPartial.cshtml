@@ -19,7 +19,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function(){
-        if(document.referrer == document.URL)
-        history.go(-1)
+        if(document.referrer == document.URL && !document.URL.substring("UploadRecipe"))
+            history.go(-1)
     })
 </script>

@@ -27,8 +27,17 @@ namespace WeEatKholodets.Pages.Recipes
             }
         }
 
-        public async Task OnPost(){
-            
+        public async Task<IActionResult> OnPost(int recipeId)
+        {
+            var recipe = context.Recipes.Find(recipeId);
+            if(recipe != null){
+                var user = await userManager.GetUserAsync(HttpContext.User);
+                context.Users.Include(p => p.FavoriteRecipes).FirstOrDefault(p => p.Id == user.Id);
+                user.FavoriteRecipes.Remove(recipe);
+                await context.SaveChangesAsync();
+            }
+
+            return RedirectToPage();
         }
     }
 }

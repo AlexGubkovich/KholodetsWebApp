@@ -44,7 +44,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" asp-for="Recipe.Files"><u>Photos</u></label>
-                    <input class="form-control" multiple asp-for="Recipe.Files" />
+                    <input class="form-control" multiple asp-for="Recipe.Files"  accept="image/*"/>
                     <span class="validation text-danger" asp-validation-for="Recipe.Files"></span>
                 </div>
                 <button id="send" type="submit" class="btn btn-primary btn-block mb-4">Send</button>

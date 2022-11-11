@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ using WeEatKholodets.Models;
 
 namespace WeEatKholodets.Pages.Recipes
 {
+    [Authorize]
     public class UploadRecipeModel : PageModel
     {
         private readonly ApplicationDbContext context;

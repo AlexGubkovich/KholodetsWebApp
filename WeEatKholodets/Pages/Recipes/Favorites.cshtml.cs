@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,6 +8,7 @@ using WeEatKholodets.Models;
 
 namespace WeEatKholodets.Pages.Recipes
 {
+    [Authorize]
     public class FavoritesModel : PageModel
     {
         private readonly UserManager<User> userManager;

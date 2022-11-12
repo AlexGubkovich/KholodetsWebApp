@@ -44,7 +44,7 @@ msgstr "Я сьел холодец"
 
 msgctxt "Pages.WantToEat"
 msgid "IWantToEat"
-msgstr "ХочуЕсть"
+msgstr "Хочу есть"
 
 msgctxt "Pages.Recipes.Index"
 msgid "Search"

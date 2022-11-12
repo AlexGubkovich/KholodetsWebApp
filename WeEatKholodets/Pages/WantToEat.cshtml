@@ -1,16 +1,17 @@
 ﻿@page
 @model WantToEatModel
+@inject IViewLocalizer Localizer
 @{
-    @ViewData["Kholodets"]
+    ViewData["Title"] = Localizer["IWantToEat"];
 }
 
 @if(Model.DidCustomerEatToday != true){
     <form method="post">
         <input type="text">
-        <button type="submit" class="btn btn-primary">I ate kholodets today</button>
+        <button type="submit" class="btn btn-primary">@Localizer["I ate kholodets today"]</button>
     </form>
 } else{
-    <h1>You have already eaten kholodets today</h1>
+    <h1>@Localizer["You have already eaten kholodets"]</h1>
 }
 
 

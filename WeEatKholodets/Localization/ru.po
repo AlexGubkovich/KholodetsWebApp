@@ -74,6 +74,22 @@ msgctxt "Pages.Recipes.ResipeDetails"
 msgid "Recipe"
 msgstr "Рецепт"
 
+msgctxt "Pages.Recipes.ResipeDetails"
+msgid "Description"
+msgstr "Описание"
+
+msgctxt "Pages.Recipes.ResipeDetails"
+msgid "Ingredients"
+msgstr "Ингредиенты"
+
+msgctxt "Pages.Recipes.ResipeDetails"
+msgid "Method of cooking"
+msgstr "Метод приготовления"
+
+msgctxt "Pages.Recipes.ResipeDetails"
+msgid "Not found"
+msgstr "Не найдено"
+
 
 
 

@@ -2,7 +2,7 @@
 @model RecipeDetails
 @inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Recipe Details";
+    ViewData["Title"] = Localizer["Recipe"];
     var activeImage = true;
 }
 <div class="row">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="row ms-auto">
-                    <div id="carouselExampleControls" class=" mb-3 carousel slide carousel-fade col-10" data-bs-ride="carousel">
+                    <div id="carouselExampleControls" class="mt-3 mb-4 carousel slide carousel-fade col-10" data-bs-ride="carousel">
                         <div class="carousel-inner col-10 mx-auto">
                             @foreach (var item in @Model.Images)
                             {
@@ -44,11 +44,11 @@
                     </div>                
                 </div>
                 <div class="mb-3">
-                    <h1 class="display-6">Description</h1>
+                    <h1 class="display-6">@Localizer["Description"]</h1>
                     <p>@Model.Recipe.Description</p>
                 </div>
                 <div class="mb-3">
-                    <h1 class="display-6">Ingredients</h1>
+                    <h1 class="display-6">@Localizer["Ingredients"]</h1>
                     <ul class="list-group list-group-flush">
                         @foreach(var ingred in Model.Recipe.Ingredients.Split("\n")){
                             @if(ingred != string.Empty){
@@ -58,13 +58,13 @@
                     </ul>
                 </div>
                 <div class="mb-3">
-                    <h1 class="display-6">Method of cooking</h1>
+                    <h1 class="display-6">@Localizer["Method of cooking"]</h1>
                     <p>@Model.Recipe.CookingMethod</p>
                 </div>
             </div>
         } 
         else{
-            <p class="lead text-center">Not found</p>
+            <p class="lead text-center">@Localizer["Not found"]</p>
         }
     </div>
 </div>

@@ -1,13 +1,14 @@
-﻿<div>
+﻿@inject IViewLocalizer Localizer
+<div>
     <ul class="nav flex-column nav-pills">
         @if (ViewData["Title"]!.ToString() == "Recipes")
         {
             <ul class="nav flex-sm-column">
                 <li class="nav-item mb-2">
-                    <a class="btn" style="background-color: #7db1ff;"  asp-page="/Recipes/UploadRecipe"> Add your recipe</a>
+                    <a class="btn" style="background-color: #7db1ff;"  asp-page="/Recipes/UploadRecipe">@Localizer["Add your recipe"]</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn" style="background-color: #e685b5"  asp-page="/Recipes/Favorites">Favorites</a>
+                    <a class="btn" style="background-color: #e685b5"  asp-page="/Recipes/Favorites">@Localizer["Favorites"]</a>
                 </li>
             </ul>
         }

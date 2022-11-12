@@ -1,5 +1,6 @@
 ﻿@page
 @model IndexModel
+@inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = "Recipes";
     bool firstPage = Model.PagingInfo.CurrentPage == 1 ? true : false;
@@ -12,13 +13,13 @@
     <div class="col-6">
         <form>
             <div class="input-group md-3 mb-3">
-                <input asp-for="SearchString" type="text" class="form-control" placeholder="Search" aria-label="Search" id="searchInput" aria-describedby="button-search">
+                <input asp-for="SearchString" type="text" class="form-control" placeholder='@Localizer["Search"]' aria-label="Search" id="searchInput" aria-describedby="button-search">
                 <button class="btn btn-outline" type="button" id="button-search-clean"><img src="~/img/clear.svg" alt="Clear"></button>
                 <button class="btn btn-outline" type="submit" id="button-search"><img src="~/img/search.svg" alt="Search"></button>
             </div>
         </form>
         @if(Model.IsTop){
-            <h1 class="display-6 ms-3 mt-0 mb-3">Most popular:</h1>
+            <h1 class="display-6 ms-3 mt-0 mb-3">@Localizer["Most popular"]</h1>
         }
         @if(Model.RecipeShorts.Count > 0){
             @foreach(var recipe in Model.RecipeShorts){
@@ -60,7 +61,7 @@
         </div>
         }
         else{
-            <p class="lead text-center">Nothing found</p>
+            <p class="lead text-center">@Localizer["Nothing found"]</p>
         }
     </div>
 </div>

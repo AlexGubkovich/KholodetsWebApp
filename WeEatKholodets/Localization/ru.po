@@ -1,0 +1,82 @@
+msgctxt  "Pages.Shared._Layout"
+msgid "Recipes"
+msgstr "Рецепты"
+
+msgctxt  "Pages.Shared._Layout"
+msgid "I want to eat"
+msgstr "Хочу кушать"
+
+msgctxt  "Pages.Shared._Layout"
+msgid "About"
+msgstr "О нас"
+
+msgctxt "Pages.Shared._LoginPartial"
+msgid "Logout"
+msgstr "Выйти"
+
+msgctxt "Pages.Shared._LoginPartial"
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+msgctxt "Pages.Shared._LoginPartial"
+msgid "Login"
+msgstr "Войти"
+
+msgctxt "Pages.Shared._RecipeNavMenuPartial"
+msgid "Add your recipe"
+msgstr "Добавить рецепт"
+
+msgctxt "Pages.Shared._RecipeNavMenuPartial"
+msgid "Favorites"
+msgstr "Избранное"
+
+msgctxt "Pages.Shared._RecipeNavMenuPartial"
+msgid "Recipes"
+msgstr "Рецепты"
+
+msgctxt "Pages.WantToEat"
+msgid "You have already eaten kholodets"
+msgstr "Вы уже ели сегодня холодец"
+
+msgctxt "Pages.WantToEat"
+msgid "I ate kholodets today"
+msgstr "Я сьел холодец"
+
+msgctxt "Pages.WantToEat"
+msgid "IWantToEat"
+msgstr "ХочуЕсть"
+
+msgctxt "Pages.Recipes.Index"
+msgid "Search"
+msgstr "Искать"
+
+msgctxt "Pages.Recipes.Index"
+msgid "Most popular"
+msgstr "Самые популярные"
+
+msgctxt "Pages.Recipes.Index"
+msgid "Nothing found"
+msgstr "Ничего не найдено"
+
+msgctxt "Pages.Recipes.Index"
+msgid "Recipes"
+msgstr "Рецепты"
+
+msgctxt "Pages.Recipes.Favorites"
+msgid "Favorite recipes"
+msgstr "Избранные рецепты"
+
+msgctxt "Pages.Recipes.Favorites"
+msgid "There is nothing"
+msgstr "Здесь ничего нет"
+
+msgctxt "Pages.Recipes.ResipeDetails"
+msgid "Recipe"
+msgstr "Рецепт"
+
+
+
+
+
+
+

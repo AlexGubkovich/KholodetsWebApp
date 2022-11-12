@@ -1,14 +1,15 @@
 @page
 @model FavoritesModel
+@inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Favorite recipes";
+    ViewData["Title"] = Localizer["Favorite recipes"];
 }
 <div class="row">
     <div class="col-2">
         <partial name="_RecipeNavMenuPartial" view-data="@ViewData"/>
     </div>
     <div class="col-6">
-        <h1 class="display-6 ms-3 mt-0 mb-3">Favorite recipes:</h1>
+        <h1 class="display-6 ms-3 mt-0 mb-3">@Localizer["Favorite recipes"]</h1>
         @if(@Model.FavoriteRecipes.Count > 0){
             @foreach(var recipe in Model.FavoriteRecipes){
                 <div class="row mb-4">
@@ -36,7 +37,7 @@
             }
         } 
         else{
-            <p class="lead text-center">There is nothing</p>
+            <p class="lead text-center">@Localizer["There is nothing"]</p>
         }
     </div>
 </div>

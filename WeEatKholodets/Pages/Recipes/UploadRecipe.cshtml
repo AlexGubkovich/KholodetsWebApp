@@ -1,7 +1,8 @@
 ﻿@page 
 @model UploadRecipeModel
+@inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Add Kholodets";
+    ViewData["Title"] = Localizer["Add Recipe"];
 }
 <div class="row">
     <div class="col-2">
@@ -13,41 +14,41 @@
                 <div class="mb-3">
                     <div class="form-floating">
                         <input class="form-control" type="text" asp-for="Recipe.Title" />
-                        <label class="form-label" asp-for=" Recipe.Title">Title</label>
+                        <label class="form-label" asp-for=" Recipe.Title">@Localizer["Title"]</label>
                     </div>
                     <span class="validation text-danger" asp-validation-for="Recipe.Title"></span>
                 </div>
                 <div class="mb-3">
                     <div class="form-floating">
                         <input class="form-control" type="text" asp-for="Recipe.Description" />
-                        <label class="form-label" asp-for="Recipe.Description">Description</label>
+                        <label class="form-label" asp-for="Recipe.Description">@Localizer["Description"]</label>
                     </div>
                     <span class="validation text-danger" asp-validation-for="Recipe.Description"></span>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" asp-for="Recipe.Ingredients"><u>Ingredients</u></label>
+                    <label class="form-label" asp-for="Recipe.Ingredients"><u>@Localizer["Ingredients"]</u></label>
                     <div class="ingredients">
                     </div>
                     <textarea id="ingredients" hidden asp-for="Recipe.Ingredients"></textarea>
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-secondary" id="adding" type="button">Add ingredient</button>
-                    <button class="btn btn-danger" id="removing" type="button">Remove ingredient</button>
+                    <button class="btn btn-secondary" id="adding" type="button">@Localizer["Add ingredient"]</button>
+                    <button class="btn btn-danger" id="removing" type="button">@Localizer["Remove ingredient"]</button>
                     <span class="validation text-danger" asp-validation-for="Recipe.Ingredients"></span>
                 </div>
                 <div class="mb-3">
                     <div class="form-floating">
                         <textarea class="form-control" asp-for="Recipe.CookingMethod" style="height: 100px"></textarea>
-                        <label class="form-label" asp-for="Recipe.CookingMethod">How to cook?</label>
+                        <label class="form-label" asp-for="Recipe.CookingMethod">@Localizer["How to cook?"]</label>
                     </div>
                     <span class="validation text-danger" asp-validation-for="Recipe.CookingMethod"></span>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" asp-for="Recipe.Files"><u>Photos</u></label>
+                    <label class="form-label" asp-for="Recipe.Files"><u>@Localizer["Photos"]</u></label>
                     <input class="form-control" multiple asp-for="Recipe.Files"  accept="image/*"/>
                     <span class="validation text-danger" asp-validation-for="Recipe.Files"></span>
                 </div>
-                <button id="send" type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+                <button id="send" type="submit" class="btn btn-primary btn-block mb-4">@Localizer["Add"]</button>
             </form>
         </div>
     </div>

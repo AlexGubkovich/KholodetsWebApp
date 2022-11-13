@@ -34,6 +34,10 @@ msgctxt "Pages.Shared._RecipeNavMenuPartial"
 msgid "Recipes"
 msgstr "Рецепты"
 
+msgctxt "Pages.Index"
+msgid "Home page"
+msgstr "Главная"
+
 msgctxt "Pages.WantToEat"
 msgid "You have already eaten kholodets"
 msgstr "Вы уже ели сегодня холодец"
@@ -47,6 +51,10 @@ msgid "IWantToEat"
 msgstr "Хочу есть"
 
 msgctxt "Pages.Recipes.Index"
+msgid "Recipes"
+msgstr "Рецепты"
+
+msgctxt "Pages.Recipes.Index"
 msgid "Search"
 msgstr "Искать"
 
@@ -57,10 +65,6 @@ msgstr "Самые популярные"
 msgctxt "Pages.Recipes.Index"
 msgid "Nothing found"
 msgstr "Ничего не найдено"
-
-msgctxt "Pages.Recipes.Index"
-msgid "Recipes"
-msgstr "Рецепты"
 
 msgctxt "Pages.Recipes.Favorites"
 msgid "Favorite recipes"
@@ -90,8 +94,45 @@ msgctxt "Pages.Recipes.ResipeDetails"
 msgid "Not found"
 msgstr "Не найдено"
 
+msgctxt "Pages.Recipes.UploadRecipe"
+msgid "Add Recipe"
+msgstr "Добавить рецепт"
 
+msgctxt "Pages.Recipes.UploadRecipe"
+msgid "Title"
+msgstr "Название"
 
+msgctxt "Pages.Recipes.UploadRecipe"
+msgid "Description"
+msgstr "Описание"
+
+msgctxt "Pages.Recipes.UploadRecipe"
+msgid "Ingredients"
+msgstr "Ингредиенты"
+
+msgctxt "Pages.Recipes.UploadRecipe"
+msgid "Add ingredient"
+msgstr "Добавить ингредиент"
+
+msgctxt "Pages.Recipes.UploadRecipe"
+msgid "Remove ingredient"
+msgstr "Удалить ингредиент"
+
+msgctxt "Pages.Recipes.UploadRecipe"
+msgid "How to cook?"
+msgstr "Как приготовить?"
+
+msgctxt "Pages.Recipes.UploadRecipe"
+msgid "Photos"
+msgstr "Фото"
+
+msgctxt "Pages.Recipes.UploadRecipe"
+msgid "Add"
+msgstr "Добавить"
+
+msgctxt "Pages.Recipes.UploadRecipe"
+msgid
+msgstr ""
 
 
 

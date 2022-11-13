@@ -1,7 +1,7 @@
 ﻿@inject IViewLocalizer Localizer
 <div>
     <ul class="nav flex-column nav-pills">
-        @if (ViewData["Title"]!.ToString() == "Recipes")
+        @if (ViewData["Title"]!.Equals(Localizer["Recipes"].Value.ToString()))
         {
             <ul class="nav flex-sm-column">
                 <li class="nav-item mb-2">

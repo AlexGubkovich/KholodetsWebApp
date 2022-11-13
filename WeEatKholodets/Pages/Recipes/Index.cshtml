@@ -2,7 +2,7 @@
 @model IndexModel
 @inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Recipes";
+    ViewData["Title"] = Localizer["Recipes"].Value.ToString();
     bool firstPage = Model.PagingInfo.CurrentPage == 1 ? true : false;
     bool lastPage = Model.PagingInfo.CurrentPage == Model.PagingInfo.TotalPages ? true : false;
 }

@@ -7,7 +7,7 @@
     bool lastPage = Model.PagingInfo.CurrentPage == Model.PagingInfo.TotalPages ? true : false;
 }
 <div class="row">
-    <div class="col-2">
+    <div class="col-2 d-flex justify-content-center">
        <partial name="_RecipeNavMenuPartial" view-data="@ViewData"/>
     </div>
     <div class="col-6">
@@ -38,27 +38,27 @@
                 </div>
             }
             <div class="row">
-                <div class="col d-flex justify-content-center">
-                <ul class="pagination">
-                    <li class='page-item @(firstPage==true?"disabled":"")'>
-                        <a class="page-link" aria-label="Previous" asp-route-recipePage=@(Model.PagingInfo.CurrentPage-1) asp-route-searchString=@Model.SearchString>
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    @for (int i = 1; i < Model.PagingInfo.TotalPages + 1; i++)
-                    {
-                        <li class='page-item @(Model.PagingInfo.CurrentPage==i?"active":"")'>
-                            <a class="page-link" asp-route-recipePage=@i asp-route-searchString=@Model.SearchString>@i</a>
+                <div class="col d-flex justify-content-center align-items-end">
+                    <ul class="pagination">
+                        <li class='page-item @(firstPage==true?"disabled":"")'>
+                            <a class="page-link" aria-label="Previous" asp-route-recipePage=@(Model.PagingInfo.CurrentPage-1) asp-route-searchString=@Model.SearchString>
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
                         </li>
-                    }
-                    <li class='page-item @(lastPage==true?"disabled":"")'>
-                        <a class="page-link " aria-label="Next" asp-route-recipePage=@(Model.PagingInfo.CurrentPage+1) asp-route-searchString=@Model.SearchString>
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
+                        @for (int i = 1; i < Model.PagingInfo.TotalPages + 1; i++)
+                        {
+                            <li class='page-item @(Model.PagingInfo.CurrentPage==i?"active":"")'>
+                                <a class="page-link" asp-route-recipePage=@i asp-route-searchString=@Model.SearchString>@i</a>
+                            </li>
+                        }
+                        <li class='page-item @(lastPage==true?"disabled":"")'>
+                            <a class="page-link " aria-label="Next" asp-route-recipePage=@(Model.PagingInfo.CurrentPage+1) asp-route-searchString=@Model.SearchString>
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
         }
         else{
             <p class="lead text-center">@Localizer["Nothing found"]</p>

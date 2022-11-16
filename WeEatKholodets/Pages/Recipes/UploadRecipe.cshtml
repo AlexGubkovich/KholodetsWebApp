@@ -32,7 +32,7 @@
                     <textarea id="ingredients" hidden asp-for="Recipe.Ingredients"></textarea>
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-secondary" id="adding" type="button">@Localizer["Add ingredient"]</button>
+                    <button class="btn btn-success" id="adding" type="button">@Localizer["Add ingredient"]</button>
                     <button class="btn btn-danger" id="removing" type="button">@Localizer["Remove ingredient"]</button>
                     <span class="validation text-danger" asp-validation-for="Recipe.Ingredients"></span>
                 </div>

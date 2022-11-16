@@ -15,6 +15,7 @@ builder.Services.AddSessionConfig();
 builder.Services.AddLocalizationConfig();
 
 builder.Services.AddRazorPages()
+    .AddDataAnnotationsLocalization()
     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
     .AddRazorRuntimeCompilation();
 

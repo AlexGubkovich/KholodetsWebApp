@@ -130,9 +130,20 @@ msgctxt "Pages.Recipes.UploadRecipe"
 msgid "Add"
 msgstr "Добавить"
 
-msgctxt "Pages.Recipes.UploadRecipe"
-msgid
-msgstr ""
+msgid "TitleRequired"
+msgstr "Поле названия является обязательным"
+
+msgid "DescriptionRequired"
+msgstr "Поле описания является обязательным"
+
+msgid "IngredientsRequired"
+msgstr "Должен быть указан по крайней мере один ингредиент"
+
+msgid "CookingMethodRequired"
+msgstr "Поле метода приготовления является обязательным"
+
+msgid "PhotosRequired"
+msgstr "Должно быть загружено по крайней мере обго фото"
 
 
 

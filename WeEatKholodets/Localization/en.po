@@ -1,0 +1,14 @@
+msgid "TitleRequired"
+msgstr "Title field is required"
+
+msgid "DescriptionRequired"
+msgstr "Description field is required"
+
+msgid "IngredientsRequired"
+msgstr "There must be at least one ingredient"
+
+msgid "CookingMethodRequired"
+msgstr "Cooking method field is required"
+
+msgid "PhotosRequired"
+msgstr "There must be at least one photo"

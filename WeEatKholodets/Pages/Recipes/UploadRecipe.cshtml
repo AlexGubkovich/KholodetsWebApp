@@ -11,55 +11,58 @@
     <div class="col-7">
         <div class="row g-3 align-items-center">
             <form method="post" enctype="multipart/form-data">
-                <div class="mb-3">
+                <div class="mb-3 field">
                     <div class="form-floating">
                         <input class="form-control" type="text" asp-for="Recipe.Title" />
-                        <label class="form-label" asp-for=" Recipe.Title">@Localizer["Title"]</label>
+                        <label class="form-label" asp-for="Recipe.Title">@Localizer["Title"]</label>
                     </div>
-                    <span class="validation text-danger" asp-validation-for="Recipe.Title"></span>
+                    <div class="invalid-feedback d-block">
+                        <span class="validation text-danger" asp-validation-for="Recipe.Title"></span>
+                    </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 field">
                     <div class="form-floating">
                         <input class="form-control" type="text" asp-for="Recipe.Description" />
                         <label class="form-label" asp-for="Recipe.Description">@Localizer["Description"]</label>
                     </div>
-                    <span class="validation text-danger" asp-validation-for="Recipe.Description"></span>
+                    <div class="invalid-feedback d-block">
+                        <span class="validation text-danger" asp-validation-for="Recipe.Description"></span>
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" asp-for="Recipe.Ingredients"><u>@Localizer["Ingredients"]</u></label>
+                    <label class="form-label text-muted" asp-for="Recipe.Ingredients">@Localizer["Ingredients"]</label>
                     <div class="ingredients">
                     </div>
                     <textarea id="ingredients" hidden asp-for="Recipe.Ingredients"></textarea>
+                    <div class="invalid-feedback d-block">
+                        <span class="validation text-danger" asp-validation-for="Recipe.Ingredients"></span>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <button class="btn btn-success" id="adding" type="button">@Localizer["Add ingredient"]</button>
                     <button class="btn btn-danger" id="removing" type="button">@Localizer["Remove ingredient"]</button>
-                    <span class="validation text-danger" asp-validation-for="Recipe.Ingredients"></span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 field">
                     <div class="form-floating">
                         <textarea class="form-control" asp-for="Recipe.CookingMethod" style="height: 100px"></textarea>
                         <label class="form-label" asp-for="Recipe.CookingMethod">@Localizer["How to cook?"]</label>
                     </div>
-                    <span class="validation text-danger" asp-validation-for="Recipe.CookingMethod"></span>
+                    <div class="invalid-feedback d-block">
+                        <span class="validation text-danger" asp-validation-for="Recipe.CookingMethod"></span>
+                    </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 field">
                     <label class="form-label" asp-for="Recipe.Files"><u>@Localizer["Photos"]</u></label>
                     <input class="form-control" multiple asp-for="Recipe.Files"  accept="image/*"/>
-                    <span class="validation text-danger" asp-validation-for="Recipe.Files"></span>
+                    <div class="invalid-feedback d-block">
+                        <span class="validation text-danger" asp-validation-for="Recipe.Files"></span>                    
+                    </div>
                 </div>
                 <button id="send" type="submit" class="btn btn-primary btn-block mb-4">@Localizer["Add"]</button>
             </form>
         </div>
     </div>
 </div>
-
-
-@* @section Scripts{
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-} *@
 
 <script>
     $(document).ready(function(){
@@ -84,4 +87,15 @@
         $('#ingredients').empty()   
         $('#ingredients').append(textIngrigients)
     })
+
+    if(document.URL == document.referrer){
+        $('.field').each(function(){
+            if($('span', this).text() != ''){
+                $('.form-control', this).addClass('is-invalid')
+            } else {
+                if($('.form-control', this).attr('type') != "file")
+                $('.form-control', this).addClass('is-valid')
+            }
+        })
+    }
 </script>

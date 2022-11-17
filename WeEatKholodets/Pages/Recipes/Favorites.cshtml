@@ -8,7 +8,7 @@
     <div class="col-2">
         <partial name="_RecipeNavMenuPartial" view-data="@ViewData"/>
     </div>
-    <div class="col-6">
+    <div class="col-7">
         <h1 class="display-6 ms-3 mt-0 mb-3">@Localizer["Favorite recipes"]</h1>
         @if(@Model.FavoriteRecipes.Count > 0){
             @foreach(var recipe in Model.FavoriteRecipes){

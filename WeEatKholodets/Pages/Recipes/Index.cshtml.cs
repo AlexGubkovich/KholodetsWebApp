@@ -22,7 +22,7 @@ namespace WeEatKholodets.Pages.Recipes
 
         public bool IsTop { get; set; } = true;
         public PagingInfo PagingInfo { get; set; } = default!;
-        private int PageSize = 2;
+        private int PageSize = 3;
 
         public async Task OnGetAsync(int recipePage = 1, string? searchString = "")
         {

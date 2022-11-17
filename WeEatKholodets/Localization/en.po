@@ -12,3 +12,12 @@ msgstr "Cooking method field is required"
 
 msgid "PhotosRequired"
 msgstr "There must be at least one photo"
+
+msgid "TitleMaxString"
+msgstr "Maximum header length 20 characters"
+
+msgid "DescriptionMaxString"
+msgstr "Maximum description length of 60 characters"
+
+msgid "CookingMethodMaxString"
+msgstr "The maximum length of the cooking method is 5000 characters"

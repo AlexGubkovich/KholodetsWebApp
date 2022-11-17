@@ -143,7 +143,16 @@ msgid "CookingMethodRequired"
 msgstr "Поле метода приготовления является обязательным"
 
 msgid "PhotosRequired"
-msgstr "Должно быть загружено по крайней мере обго фото"
+msgstr "Должно быть загружено по крайней мере одно фото"
+
+msgid "TitleMaxString"
+msgstr "Максимальная длинна названия 20 символов"
+
+msgid "DescriptionMaxString"
+msgstr "Максимальная длинна описания 60 символов"
+
+msgid "CookingMethodMaxString"
+msgstr "Максимальная длинна метода приготовления 5000 символов"
 
 
 

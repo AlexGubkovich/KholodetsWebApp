@@ -1,4 +1,6 @@
 using System.Globalization;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using WeEatKholodets.Data;
@@ -39,10 +41,12 @@ namespace WeEatKholodets.Services
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddAuthentication()
-                .AddGoogle(options =>
+                .AddGoogle("google", options =>
                 {
                     options.ClientId = configuration["Google:ClientId"];
                     options.ClientSecret = configuration["Google:ClientSecret"];
+                    //options.ClaimActions.MapJsonKey("image", "picture");
+                    options.SignInScheme = IdentityConstants.ExternalScheme;
                 }); 
         }
 

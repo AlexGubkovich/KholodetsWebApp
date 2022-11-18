@@ -26,14 +26,29 @@
                             </div>
                         </div>
                     </div>
-                    <form  class="col-1 d-flex" method="post" asp-route-recipeId=@recipe.Id>
-                        <button class="btn btn-outline-danger vibro">
+                    <div class="col-1 d-flex">
+                        <button class="btn btn-outline-danger vibro" data-bs-toggle="modal" data-bs-target="#deleteFavoriteRecipeModal">
                             <img  src="~/img/clear.svg" alt="" srcset="">
                         </button>
-                    </form>
-
+                    </div>
+                    <!--Modal window-->
+                    <div class="modal fade" id="deleteFavoriteRecipeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel"> @Localizer["Do you want to delete recipe from favorites?"]</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                                </div>
+                                <div class="modal-body d-flex flex-row">
+                                    <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">@Localizer["Close"]</button>
+                                    <form method="post" asp-route-recipeId=@recipe.Id>
+                                        <button type="submit" class="btn btn-danger me-1">@Localizer["Delete"]</button> 
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
             }
         } 
         else{
@@ -41,3 +56,4 @@
         }
     </div>
 </div>
+

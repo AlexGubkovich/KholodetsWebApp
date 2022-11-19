@@ -176,7 +176,10 @@ namespace WeEatKholodets.Areas.Identity.Pages.Account
 
                         await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                             $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
+                        if (info.Principal.HasClaim(c => c.Type == "image")) 
+                        { 
+                            await _userManager.AddClaimAsync(user, info.Principal.FindFirst("image")); 
+                        } 
                         // If account confirmation is required, we need to show the link if we don't have a real email sender
                         if (_userManager.Options.SignIn.RequireConfirmedAccount)
                         {

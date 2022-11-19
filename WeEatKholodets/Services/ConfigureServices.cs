@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
@@ -45,8 +46,16 @@ namespace WeEatKholodets.Services
                 {
                     options.ClientId = configuration["Google:ClientId"];
                     options.ClientSecret = configuration["Google:ClientSecret"];
-                    //options.ClaimActions.MapJsonKey("image", "picture");
                     options.SignInScheme = IdentityConstants.ExternalScheme;
+                    // options.Scope.Add("profile");
+                    // options.Events.OnCreatingTicket = (context) => {
+                    //     var picture = context.User.GetProperty("picture").GetString();
+                    //     if(picture != null){
+                    //         context.Identity?.AddClaim(new Claim("picture", picture));
+                    //     }
+                    //     return Task.CompletedTask;
+                    // };
+                    options.ClaimActions.MapJsonKey("image", "picture");
                 }); 
         }
 

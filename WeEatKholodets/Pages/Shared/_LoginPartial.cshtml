@@ -3,6 +3,10 @@
 @inject UserManager<User> UserManager
 @inject IViewLocalizer Localizer
 
+@{
+    var picture = User.FindFirst("image")?.Value;
+}
+<img src='@Context.User.FindFirst("image")?.Value' alt="avatar" class="rounded-circle" style="width: 40px" /> 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {

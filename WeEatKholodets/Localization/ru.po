@@ -74,6 +74,18 @@ msgctxt "Pages.Recipes.Favorites"
 msgid "There is nothing"
 msgstr "Здесь ничего нет"
 
+msgctxt "Pages.Recipes.Favorites"
+msgid "Do you want to delete recipe from favorites?"
+msgstr "Вы хотите удалить рецепт из избранного?"
+
+msgctxt "Pages.Recipes.Favorites"
+msgid "Close"
+msgstr "Закрыть"
+
+msgctxt "Pages.Recipes.Favorites"
+msgid "Delete"
+msgstr "Удалить"
+
 msgctxt "Pages.Recipes.ResipeDetails"
 msgid "Recipe"
 msgstr "Рецепт"

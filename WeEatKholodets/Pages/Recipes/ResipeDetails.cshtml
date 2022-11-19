@@ -16,7 +16,7 @@
                     <h1 class="col-11 flex-fill display-4 mb-3">@Model.Recipe.Title</h1>
                     <div class="col-1 flex-fill d-flex align-items-center">
                         <form method="post" asp-route-recipeId=@Model.Recipe.Id>
-                            <button class="btn btn-light" type="submit">
+                            <button class="btn btn-light" style="background: rgba(0, 0, 0, 0);" type="submit">
                                 @await Component.InvokeAsync("Bookmark", new { recipeId = @Model.Recipe.Id })
                             </button>
                         </form>
@@ -52,7 +52,7 @@
                     <ul class="list-group list-group-flush">
                         @foreach(var ingred in Model.Recipe.Ingredients.Split("\n")){
                             @if(ingred != string.Empty){
-                                <li class="list-group-item">@ingred</li>
+                                <li class="list-group-item" style="background: rgba(0, 0, 0, 0);">@ingred</li>
                             }
                         }
                     </ul>

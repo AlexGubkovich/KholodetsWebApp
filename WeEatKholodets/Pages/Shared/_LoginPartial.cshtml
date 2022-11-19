@@ -3,29 +3,30 @@
 @inject UserManager<User> UserManager
 @inject IViewLocalizer Localizer
 
-@{
-    var picture = User.FindFirst("image")?.Value;
-}
-<img src='@Context.User.FindFirst("image")?.Value' alt="avatar" class="rounded-circle" style="width: 40px" /> 
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark text-nowrap" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post" >
-            <button  type="submit" class="nav-link btn btn-link text-dark">@Localizer["Logout"]</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">@Localizer["Register"]</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">@Localizer["Login"]</a>
-    </li>
-}
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="row d-flex justify-content-end">
+            <li class="nav-item col-3 d-flex align-items-center">
+                <a  class="nav-link text-dark text-nowrap p-0 py-1" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                    <img src='@Context.User.FindFirst("image")?.Value' alt="avatar" class="rounded-circle img-fluid"  /> 
+                </a>
+            </li>
+            <li class="nav-item col-5">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl='@Url.Page("/", new { area = "" })' method="post" >
+                    <button  type="submit" class="nav-link btn btn-link text-dark">@Localizer["Logout"]</button>
+                </form>
+            </li>
+        </div>
+
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">@Localizer["Register"]</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">@Localizer["Login"]</a>
+        </li>
+    }
 </ul>

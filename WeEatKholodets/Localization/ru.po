@@ -171,5 +171,58 @@ msgid "CookingMethodMaxString"
 msgstr "Максимальная длинна метода приготовления 5000 символов"
 
 
+    #Identity
+msgctxt "Identity.Pages.Account.Logout"
+msgid "Log out"
+msgstr "Выйти"
+
+msgctxt "Identity.Pages.Account.Logout"
+msgid "Click here to Logout"
+msgstr "Нажмите здесь, чтобы выйти"
+
+msgctxt "Identity.Pages.Account.Logout"
+msgid "You have successfully logged out of the application."
+msgstr "Вы успешно вышли."
+
+msgctxt "Identity.Pages.Account.Register"
+msgid "Register"
+msgstr "Регистрация"
+
+msgctxt "Identity.Pages.Account.Register"
+msgid "Create a new account."
+msgstr "Создать новый аккаунт."
+
+msgctxt "Identity.Pages.Account.Register"
+msgid "Use another service to register."
+msgstr "Использовать сервис для регистрации."
+
+msgctxt "Identity.Pages.Account.Register"
+msgid "Log in using your account"
+msgstr "Войдите, используя свой аккаунт"
+
+    #Identity models
+
+msgid "Email"
+msgstr "Электронная почта"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Confirm password"
+msgstr "Подтверждение пароля"
+
+    #Identity models errors
+
+msgid "The {0} must be at least {2} and at max {1} characters long."
+msgstr "{0} должен иметь длину не менее {2} и максимум {1} символов."
+
+msgid "The password and confirmation password do not match."
+msgstr "Пароль и подтверждение пароля не совпадают."
+
+msgid "The Email field is required."
+msgstr "Электронная почта является обязательным полем."
+
+msgid "The Password field is required."
+msgstr "Пароль является обязательным полем ."
 
 

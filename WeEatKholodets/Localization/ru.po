@@ -22,6 +22,10 @@ msgctxt "Pages.Shared._LoginPartial"
 msgid "Login"
 msgstr "Войти"
 
+msgctxt "Pages.Shared._LoginPartial"
+msgid "Manage"
+msgstr "Управлять аккаунтом"
+
 msgctxt "Pages.Shared._RecipeNavMenuPartial"
 msgid "Add your recipe"
 msgstr "Добавить рецепт"

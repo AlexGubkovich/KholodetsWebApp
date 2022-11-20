@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WeEatKholodets.Pages
 {
-    [Authorize]
+    [AllowAnonymous]
     public class AboutModel : PageModel
     {
         private readonly ILogger<AboutModel> _logger;

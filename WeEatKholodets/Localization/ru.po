@@ -224,6 +224,14 @@ msgctxt "Identity.Pages.Account.Login"
 msgid "Log in using your account"
 msgstr "Войдите, используя свой аккаунт"
 
+msgctxt "Identity.Pages.Account.Manage._ManageNav"
+msgid "Password"
+msgstr "Пароль"
+
+msgctxt "Identity.Pages.Account.Manage._ManageNav"
+msgid "Personal data"
+msgstr "Личные данные"
+
 
     #Identity models
 

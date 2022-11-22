@@ -200,8 +200,34 @@ msgctxt "Identity.Pages.Account.Register"
 msgid "Log in using your account"
 msgstr "Войдите, используя свой аккаунт"
 
+msgctxt "Identity.Pages.Account.Login"
+msgid "Log in"
+msgstr "Войти"
+
+msgctxt "Identity.Pages.Account.Login"
+msgid "Use a local account to log in."
+msgstr "Используйте для входа локальную учетную запись."
+
+msgctxt "Identity.Pages.Account.Login"
+msgid "Forgot your password?"
+msgstr "Забыли пароль?"
+
+msgctxt "Identity.Pages.Account.Login"
+msgid "Register as a new user"
+msgstr "Зарегистрироваться как новый пользователь"
+
+msgctxt "Identity.Pages.Account.Login"
+msgid "Use another service to log in."
+msgstr "Использовать другой сервис для входа."
+
+msgctxt "Identity.Pages.Account.Login"
+msgid "Log in using your account"
+msgstr "Войдите, используя свой аккаунт"
+
+
     #Identity models
 
+#Register
 msgid "Email"
 msgstr "Электронная почта"
 
@@ -210,6 +236,10 @@ msgstr "Пароль"
 
 msgid "Confirm password"
 msgstr "Подтверждение пароля"
+
+#Login
+msgid "Remember me?"
+msgstr "Запомнить меня?"
 
     #Identity models errors
 

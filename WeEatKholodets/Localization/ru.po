@@ -194,7 +194,7 @@ msgstr "Создать новый аккаунт."
 
 msgctxt "Identity.Pages.Account.Register"
 msgid "Use another service to register."
-msgstr "Использовать сервис для регистрации."
+msgstr "Использовать сторонний сервис для регистрации."
 
 msgctxt "Identity.Pages.Account.Register"
 msgid "Log in using your account"
@@ -218,7 +218,7 @@ msgstr "Зарегистрироваться как новый пользова�
 
 msgctxt "Identity.Pages.Account.Login"
 msgid "Use another service to log in."
-msgstr "Использовать другой сервис для входа."
+msgstr "Использовать сторонний сервис для входа."
 
 msgctxt "Identity.Pages.Account.Login"
 msgid "Log in using your account"
@@ -240,6 +240,12 @@ msgstr "Подтверждение пароля"
 #Login
 msgid "Remember me?"
 msgstr "Запомнить меня?"
+
+msgid "Email"
+msgstr "Электронная почта"
+
+msgid "Password"
+msgstr "Пароль"
 
     #Identity models errors
 

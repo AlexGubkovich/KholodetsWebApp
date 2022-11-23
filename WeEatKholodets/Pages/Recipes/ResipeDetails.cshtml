@@ -16,7 +16,7 @@
                     <h1 class="col-11 flex-fill display-4 mb-3">@Model.Recipe.Title</h1>
                     <div class="col-1 flex-fill d-flex align-items-center">
                         <form method="post" asp-route-recipeId=@Model.Recipe.Id>
-                            <button class="btn btn-light" style="background: rgba(0, 0, 0, 0);" type="submit">
+                            <button class="btn btn-light border-0" style="background: rgba(0, 0, 0, 0);" type="submit">
                                 @await Component.InvokeAsync("Bookmark", new { recipeId = @Model.Recipe.Id })
                             </button>
                         </form>

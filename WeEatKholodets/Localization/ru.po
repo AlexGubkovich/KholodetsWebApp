@@ -232,6 +232,21 @@ msgctxt "Identity.Pages.Account.Manage._ManageNav"
 msgid "Personal data"
 msgstr "Личные данные"
 
+msgctxt "Identity.Pages.Account.Manage._Layout"
+msgid "Manage your account"
+msgstr "Управление учетной записью"
+
+msgctxt "Identity.Pages.Account.Manage._Layout"
+msgid "Change your account settings"
+msgstr "Изменить настройки вашей учетной записи"
+
+msgctxt "Identity.Pages.Account.Manage.Index"
+msgid "Profile"
+msgstr "Профиль"
+
+msgctxt "Identity.Pages.Account.Manage.Index"
+msgid "Hello, a kholodets lover whose email"
+msgstr "Здравствуй любитель холодца, чей адрес электронной почты"
 
     #Identity models
 

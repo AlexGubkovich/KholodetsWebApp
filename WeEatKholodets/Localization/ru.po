@@ -248,6 +248,80 @@ msgctxt "Identity.Pages.Account.Manage.Index"
 msgid "Hello, a kholodets lover whose email"
 msgstr "Здравствуй любитель холодца, чей адрес электронной почты"
 
+msgctxt "Identity.Pages.Account.Manage.PersonalData"
+msgid "Personal Data"
+msgstr "Личные данные"
+
+msgctxt "Identity.Pages.Account.Manage.PersonalData"
+msgid "Your account contains personal data that you have given us. This page allows you to delete that data."
+msgstr "Ваша учетная запись содержит личные данные, которые вы дали нам. Эта страница позволяет удалить эти данные."
+
+msgctxt "Identity.Pages.Account.Manage.PersonalData"
+msgid "Deleting this data will permanently remove your account, and this cannot be recovered."
+msgstr "Удаление этих данных навсегда удалит вашу учетную запись, и она не сможет быть восстановлена."
+
+msgctxt "Identity.Pages.Account.Manage.PersonalData"
+msgid "Delete"
+msgstr "Удалить"
+
+msgctxt "Identity.Pages.Account.Manage.SetPassword"
+msgid "Set password"
+msgstr "Установить пароль"
+
+msgctxt "Identity.Pages.Account.Manage.SetPassword"
+msgid "You do not have a local password for this site. Add a local account so you can log in without an external login."
+msgstr "Вы не имеете локального пароля для этого сайта. Добавьте локальную учетную запись, чтобы вы могли войти без стороннего сервиса."
+
+msgctxt "Identity.Pages.Account.Manage.SetPassword"
+msgid "Set your password"
+msgstr "Установить пароль"
+
+msgctxt "Identity.Pages.Account.Manage.ChangePassword"
+msgid "Change password"
+msgstr "Изменить пароль"
+
+msgctxt "Identity.Pages.Account.Manage.ChangePassword"
+msgid "Update password"
+msgstr "Изменить пароль"
+
+msgctxt "Identity.Pages.Account.Manage.DeletePersonalData"
+msgid "Delete Personal Data"
+msgstr "Удаление персональных данных"
+
+msgctxt "Identity.Pages.Account.Manage.DeletePersonalData"
+msgid "Deleting this data will permanently remove your account, and this cannot be recovered."
+msgstr "Удаление этих данных навсегда удалит вашу учетную запись, и она не сможет быть восстановлена."
+
+msgctxt "Identity.Pages.Account.Manage.DeletePersonalData"
+msgid "Delete data and close my account"
+msgstr "Удалить и выйти из аккаунта"
+
+msgctxt "Identity.Pages.Account.ExternalLogin"
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+msgctxt "Identity.Pages.Account.ExternalLogin"
+msgid "Associate your"
+msgstr "Присоединить ваш"
+
+msgctxt "Identity.Pages.Account.ExternalLogin"
+msgid "account."
+msgstr "аккаунт."
+
+msgctxt "Identity.Pages.Account.ExternalLogin"
+msgid "You've successfully authenticated with "
+msgstr "Вы успешно прошли проверку подлинности "
+
+msgctxt "Identity.Pages.Account.ExternalLogin"
+msgid "Please enter an email address for this site below and click the Register button to finish logging in."
+msgstr "Пожалуйста, введите адрес электронной почты для этого сайта ниже и нажмите кнопку Зарегистрироваться, чтобы завершить вход в систему."
+
+msgctxt "Identity.Pages.Account.ExternalLogin"
+msgid
+msgstr ""
+
+
+
     #Identity models
 
 #Register
@@ -269,6 +343,20 @@ msgstr "Электронная почта"
 
 msgid "Password"
 msgstr "Пароль"
+
+#SetPassword
+
+msgid "New password"
+msgstr "Новый пароль"
+
+msgid "Confirm new password"
+msgstr "Подтверждение нового пароля"
+
+msgid "Current password"
+msgstr "Текущий пароль"
+
+msgid ""
+msgstr ""
 
     #Identity models errors
 

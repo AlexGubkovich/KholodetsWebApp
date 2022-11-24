@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc.Razor;
 using WeEatKholodets.Data;
 using WeEatKholodets.Services;
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbConfig(builder.Configuration);
 
 builder.Services.AddTransient<IMealRepository, EFMealRepository>();
+builder.Services.AddScoped<IEmailSender, EmailService>();
 
 builder.Services.AddIdentityAndAuthenticationConfig(builder.Configuration);
 

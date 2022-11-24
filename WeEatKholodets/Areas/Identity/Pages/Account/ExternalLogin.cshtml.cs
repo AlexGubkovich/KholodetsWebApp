@@ -181,8 +181,8 @@ namespace WeEatKholodets.Areas.Identity.Pages.Account
                             values: new { area = "Identity", userId = userId, code = code },
                             protocol: Request.Scheme);
 
-                        await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                            $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                        // await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                        //     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
                         if (info.Principal.HasClaim(c => c.Type == "image")) 
                         { 
                             await _userManager.AddClaimAsync(user, info.Principal.FindFirst("image")); 

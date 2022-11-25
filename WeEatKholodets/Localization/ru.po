@@ -62,12 +62,6 @@ msgctxt "Pages.Index"
 msgid "Recipes are here"
 msgstr "А рацепты здесь"
 
-msgctxt "Pages.Index"
-msgid 
-msgstr ""
-
-
-
 msgctxt "Pages.WantToEat"
 msgid "You have already eaten kholodets"
 msgstr "Вы уже ели сегодня холодец"
@@ -90,7 +84,11 @@ msgstr "Чё за?"
 
 msgctxt "Pages.About"
 msgid "About me"
-msgstr "    Действительно, нафига? Почему - а <a>потому</a>. Зачем - затем? Ладно, а теперь серьезно. Я ненавижу холодец, поэтому я сделал сайт для тех, кому он нравится, чтобы у них было свое комьюнити. Просто так, из милосердия."
+msgstr "Действительно, нафига? Почему - а <a>потому</a>. Зачем - затем? Ладно, а теперь серьезно. Я ненавижу холодец, поэтому я сделал сайт для тех, кому он нравится, чтобы у них было свое комьюнити. Просто так, из милосердия."
+
+msgctxt "Pages.About"
+msgid "Literally me"
+msgstr "Буквально я"
 
 msgctxt "Pages.Recipes.Index"
 msgid "Recipes"

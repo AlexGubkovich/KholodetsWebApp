@@ -1,8 +1,16 @@
 ﻿@page
 @model AboutModel
+@inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = Localizer["About"];
 }
-<h1>@ViewData["Title"]</h1>
+<h1>@Localizer["WTF?"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="row mt-4">
+    <div class="col-8">
+        <p class="">
+            @Localizer["About me"]
+        </p>
+    </div>
+</div>
+

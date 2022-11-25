@@ -21,3 +21,7 @@ msgstr "Maximum description length of 60 characters"
 
 msgid "CookingMethodMaxString"
 msgstr "The maximum length of the cooking method is 5000 characters"
+
+msgctxt "Pages.About"
+msgid "About me"
+msgstr "Indeed, what the hell? Why - because. All right, seriously now. I hate a kholodets, so I made a site for those who like it, to have their own community. Just like that, out of charity."

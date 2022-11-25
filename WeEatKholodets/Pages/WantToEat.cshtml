@@ -10,7 +10,15 @@
         <button type="submit" class="btn btn-primary">@Localizer["I ate kholodets today"]</button>
     </form>
 } else{
-    <h1>@Localizer["You have already eaten kholodets"]</h1>
+    <div class="row d-flex justify-content-start">
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary disabled">@Localizer["I ate kholodets today"]</button>
+        </div>
+        <div class="col-auto">
+            <h3>@Localizer["You have already eaten kholodets"]</h3>
+        </div>
+    </div>
 }
+
 
 

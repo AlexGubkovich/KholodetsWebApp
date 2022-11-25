@@ -42,6 +42,32 @@ msgctxt "Pages.Index"
 msgid "Home page"
 msgstr "Главная"
 
+msgctxt "Pages.Index"
+msgid "Welcome text"
+msgstr "Приветсвую вас на сайте. Не будем ходить вокруг да около. В холодце содержится много коллагена, он очень полезен для кожи и суставов, а таеже обладает высоким содержанием белка, витаминами А,В и С. А ведь не каждый умеет его готовить. Здесь вы найдете рецепты, а также сможете присоединится к сообществу близких вам по вкусовым рецепторам людей."
+
+msgctxt "Pages.Index"
+msgid "Are you hungry?"
+msgstr "Вы голодные?"
+
+msgctxt "Pages.Index"
+msgid "I want to eat"
+msgstr "Да!"
+
+msgctxt "Pages.Index"
+msgid "Are you looking for a recipe?"
+msgstr "Ищите рецепты?"
+
+msgctxt "Pages.Index"
+msgid "Recipes are here"
+msgstr "А рацепты здесь"
+
+msgctxt "Pages.Index"
+msgid 
+msgstr ""
+
+
+
 msgctxt "Pages.WantToEat"
 msgid "You have already eaten kholodets"
 msgstr "Вы уже ели сегодня холодец"
@@ -64,7 +90,7 @@ msgstr "Чё за?"
 
 msgctxt "Pages.About"
 msgid "About me"
-msgstr "Действительно, нафига? Почему - а <a>потому</a>. Зачем - затем? Ладно, а теперь серьезно. Я ненавижу холодец, поэтому я сделал сайт для тех, кому он нравится, чтобы у них было свое комьюнити. Просто так, из милосердия."
+msgstr "    Действительно, нафига? Почему - а <a>потому</a>. Зачем - затем? Ладно, а теперь серьезно. Я ненавижу холодец, поэтому я сделал сайт для тех, кому он нравится, чтобы у них было свое комьюнити. Просто так, из милосердия."
 
 msgctxt "Pages.Recipes.Index"
 msgid "Recipes"

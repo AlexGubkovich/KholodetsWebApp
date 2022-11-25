@@ -25,3 +25,7 @@ msgstr "The maximum length of the cooking method is 5000 characters"
 msgctxt "Pages.About"
 msgid "About me"
 msgstr "Indeed, what the hell? Why - because. All right, seriously now. I hate a kholodets, so I made a site for those who like it, to have their own community. Just like that, out of charity."
+
+msgctxt "Pages.Index"
+msgid "Welcome text"
+msgstr "Welcome to the website. Let’s not beat around the bush. A kholodets contains collagen, it is very useful for the skin and joints, and tayuge has a high content of protein, vitamins A, B and C. Not everyone can cook it. Here you will find recipes, and you will also be able to join a community of people close to your taste buds."

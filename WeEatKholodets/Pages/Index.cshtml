@@ -5,5 +5,46 @@
     ViewData["Title"] = Localizer["Home page"].Value.ToString();
 }
 
-Home Page
+<div class="row mb-5">
+    <div class="col">
+        <div class="row mb-3">
+            <div class="col d-flex justify-content-center">
+                <p class="lead mb-0">@Localizer["Are you hungry?"]</p>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col d-flex justify-content-center">
+                <img src="~/img/arrow-down.svg" alt="" srcset="">
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <a asp-area="" asp-page="/WantToEat" class="btn btn-dark" >@Localizer["I want to eat"]</a>
+            </div>            
+        </div>        
+    </div>
+    <div class="col">
+        <div class="row mb-3">
+            <div class="col d-flex justify-content-center">
+                <p class="lead mb-0">@Localizer["Are you looking for a recipe?"]</p>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col d-flex justify-content-center">
+                <img src="~/img/arrow-down.svg" alt="" srcset="">
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <a asp-area="" asp-page="/Recipes/Index" class="btn btn-dark" >@Localizer["Recipes are here"]</a>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <p style="text-indent: 20px;">@Localizer["Welcome text"]</p>
+    </div>
+</div>
 

@@ -35,7 +35,7 @@ namespace WeEatKholodets.Pages
         public async Task<IActionResult> OnPostAsync()
         {
             User user = await userManager.GetUserAsync(HttpContext.User);
-            mealRepository.AddMealAsync(user);
+            mealRepository.AddMeal(user);
             await mealRepository.SaveAsync();
 
             return RedirectToPage();

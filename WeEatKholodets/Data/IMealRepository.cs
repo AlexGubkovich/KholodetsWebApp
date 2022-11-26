@@ -11,7 +11,7 @@ namespace WeEatKholodets.Data
     public interface IMealRepository
     {
         IQueryable<Meal> GetMeals { get; }
-        void AddMealAsync(User user);
+        void AddMeal(User user);
         IQueryable<Meal> GetMealsByUserId(string userId);
         Task SaveAsync();
     }

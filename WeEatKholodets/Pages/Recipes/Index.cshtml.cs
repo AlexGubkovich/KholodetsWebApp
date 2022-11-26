@@ -9,10 +9,10 @@ namespace WeEatKholodets.Pages.Recipes
     [Authorize]
     public class IndexModel : PageModel
     {
-        private readonly ApplicationDbContext context;
-        public IndexModel(ApplicationDbContext context)
+        private readonly IRecipeRepository recipeRepository;
+        public IndexModel(IRecipeRepository recipeRepository)
         {
-            this.context = context;
+           this.recipeRepository = recipeRepository;
         }
 
         public List<RecipeShort> RecipeShorts { get; set; } = default!;
@@ -29,9 +29,9 @@ namespace WeEatKholodets.Pages.Recipes
             if(string.IsNullOrEmpty(SearchString)){
                 SearchString = searchString;
             }
-            if(context.Recipes != null)
+            if(await recipeRepository.GetRecipes.AnyAsync())
             {
-                var recipeShorts = from r in context.Recipes
+                var recipeShorts = from r in recipeRepository.GetRecipes
                                    select r;
                 if(!string.IsNullOrEmpty(SearchString))
                 {
@@ -47,8 +47,8 @@ namespace WeEatKholodets.Pages.Recipes
                 PagingInfo = new PagingInfo{
                     CurrentPage = recipePage,
                     ItemsPerPage = PageSize,
-                    TotalItems = string.IsNullOrEmpty(SearchString) ? context.Recipes.Count() : 
-                        context.Recipes
+                    TotalItems = string.IsNullOrEmpty(SearchString) ? recipeRepository.GetRecipes.Count() : 
+                        recipeRepository.GetRecipes
                             .Where(s => s.Title.Contains(SearchString)).Count()
                 };
             }

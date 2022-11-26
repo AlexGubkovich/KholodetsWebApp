@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbConfig(builder.Configuration);
 
 builder.Services.AddTransient<IMealRepository, EFMealRepository>();
+builder.Services.AddTransient<IRecipeRepository, EFRecipeRepository>();
 builder.Services.AddScoped<IEmailSender, EmailService>();
 
 builder.Services.AddIdentityAndAuthenticationConfig(builder.Configuration);

@@ -21,7 +21,7 @@ namespace WeEatKholodets.Data
 
         public IQueryable<Meal> GetMeals => context.Meals;
 
-        public void AddMealAsync(User user)
+        public void AddMeal(User user)
         {
             context.Meals.Add(new Meal
             {

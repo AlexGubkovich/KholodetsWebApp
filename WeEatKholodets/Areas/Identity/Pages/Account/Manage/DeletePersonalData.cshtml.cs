@@ -18,16 +18,16 @@ namespace WeEatKholodets.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private readonly ApplicationDbContext _context;
+        private readonly IMealRepository mealRepository;
         private readonly ILogger<DeletePersonalDataModel> _logger;
 
         public DeletePersonalDataModel(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
             ILogger<DeletePersonalDataModel> logger,
-            ApplicationDbContext context)
+            IMealRepository mealRepository)
         {
-            _context = context;
+            this.mealRepository = mealRepository;
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
@@ -76,9 +76,9 @@ namespace WeEatKholodets.Areas.Identity.Pages.Account.Manage
                 }
             }
 
-            var meals = _context.Meals.Where(m => m.User.Id == user.Id);
+            var meals = mealRepository.GetMealsByUserId(user.Id);
             if(meals != null){
-                _context.Meals.RemoveRange(meals);
+               mealRepository.RemoveRangeMeals(meals);
             }
             var result = await _userManager.DeleteAsync(user);
             var userId = await _userManager.GetUserIdAsync(user);

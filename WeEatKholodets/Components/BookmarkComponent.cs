@@ -9,16 +9,16 @@ namespace WeEatKholodets.Components
     public class Bookmark : ViewComponent
     {
         private readonly UserManager<User> userManager;
-        private readonly ApplicationDbContext context;
-        public Bookmark(UserManager<User> userManager, ApplicationDbContext context){
+        private readonly IUserRepository userRepository;
+        public Bookmark(UserManager<User> userManager, IUserRepository userRepository){
             this.userManager = userManager;
-            this.context = context;
+            this.userRepository = userRepository;
         }
         
         public async Task<IViewComponentResult> InvokeAsync(int recipeId){
             bool isItFavorite = false;
             var user = await userManager.GetUserAsync(HttpContext.User);
-            context.Users.Include(p => p.FavoriteRecipes).FirstOrDefault(p => p.Id == user.Id);
+            userRepository.GetUsers.Include(p => p.FavoriteRecipes).FirstOrDefault(p => p.Id == user.Id);
             if(user.FavoriteRecipes != null)
                 if(user.FavoriteRecipes.Find(p => p.Id == recipeId) != null)
                     isItFavorite = true;

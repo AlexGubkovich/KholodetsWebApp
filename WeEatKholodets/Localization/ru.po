@@ -64,7 +64,7 @@ msgstr "А рацепты здесь"
 
 msgctxt "Pages.WantToEat"
 msgid "You have already eaten kholodets"
-msgstr "Вы уже ели сегодня холодец"
+msgstr "Вы уже ели сегодня холодец. Молодца, так держать!"
 
 msgctxt "Pages.WantToEat"
 msgid "I ate kholodets today"

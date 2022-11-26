@@ -12,13 +12,27 @@ public class EFRecipeRepository : IRecipeRepository
 
     public IQueryable<Recipe> GetRecipes => context.Recipes;
 
-    public void AddRecipe()
+    public void AddRecipe(Recipe recipe)
     {
-        throw new NotImplementedException();
+        if(recipe != null){
+            context.Recipes.Add(recipe);
+        }
     }
 
     public async Task<Recipe?> GetRecipeAsync(int recipeId)
     {
         return await context.Recipes.FindAsync(recipeId);
+    }
+
+    public async Task SaveAsync()
+    {
+        await context.SaveChangesAsync();
+    }
+
+    public void UpdateRecipe(Recipe recipe)
+    {
+        if(recipe != null){
+            context.Recipes.Update(recipe);
+        }
     }
 }

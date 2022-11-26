@@ -11,12 +11,14 @@ namespace WeEatKholodets.Pages.Recipes
     [Authorize]
     public class RecipeDetails : PageModel
     {
-        private readonly ApplicationDbContext context;
+        private readonly IRecipeRepository recipeRepository;
+        private readonly IUserRepository userRepository;
         private readonly UserManager<User> userManager;
-        public RecipeDetails(ApplicationDbContext context, UserManager<User> userManager)
+        public RecipeDetails(IRecipeRepository recipeRepository, UserManager<User> userManager, IUserRepository userRepository)
         {
             this.userManager = userManager;
-            this.context = context;
+            this.recipeRepository = recipeRepository;
+            this.userRepository = userRepository;
         }
 
         public Recipe? Recipe { get; set; } = default!;
@@ -24,7 +26,7 @@ namespace WeEatKholodets.Pages.Recipes
 
         public async Task<IActionResult> OnGetAsync(int? Id)
         {
-            Recipe = await context.Recipes.Include(r => r.Photos).FirstOrDefaultAsync(r => r.Id == Id);
+            Recipe = await recipeRepository.GetRecipes.Include(r => r.Photos).FirstOrDefaultAsync(r => r.Id == Id);
             if(Recipe != null)
             {
                 string base64;
@@ -41,24 +43,24 @@ namespace WeEatKholodets.Pages.Recipes
                     HttpContext.Session.SetString("VisitePage", queryString);
                 }
 
-                context.Recipes.Update(Recipe);
-                await context.SaveChangesAsync();
+                recipeRepository.UpdateRecipe(Recipe);
+                await recipeRepository.SaveAsync();
             }
 
             return Page();
         }
         public async Task<IActionResult> OnPostAsync(int recipeId){
             var user = await userManager.GetUserAsync(HttpContext.User);
-            context.Users.Include(p => p.FavoriteRecipes).FirstOrDefault(p => p.Id == user.Id);
+            userRepository.GetUsers.Include(p => p.FavoriteRecipes).FirstOrDefault(p => p.Id == user.Id);
             if(user != null)
             {
-                var recipe = context.Recipes.Find(recipeId);
+                var recipe = await recipeRepository.GetRecipeAsync(recipeId);
                 if(user.FavoriteRecipes.Find(p => p.Id == recipeId) == null){
                      recipe!.Users.Add(user);
-                     await context.SaveChangesAsync();
+                     await recipeRepository.SaveAsync();
                 } else {
                     recipe!.Users.Remove(user);
-                    await context.SaveChangesAsync();
+                    await recipeRepository.SaveAsync();
                 }
             }
 

@@ -25,7 +25,14 @@ namespace WeEatKholodets.Pages
         public void OnGet()
         {
             var userId = userManager.GetUserId(User);
-            Meal? lastMeal = mealRepository.GetMealsByUserId(userId).Last();
+            var mealsCount = mealRepository.GetMealsByUserId(userId).Count();
+            Meal? lastMeal;
+            if(mealsCount > 0) {
+                lastMeal = mealRepository.GetMealsByUserId(userId).OrderBy(m => m.Date).Last();
+            } else {
+                 lastMeal = mealRepository.GetMeals.FirstOrDefault();
+            }
+
             if (lastMeal?.Date.Day == DateTime.Today.Day)
             {
                 DidCustomerEatToday = true;

@@ -40,18 +40,10 @@ namespace WeEatKholodets.Data
         {
             await context.SaveChangesAsync();
         }
+
+        public void RemoveRangeMeals(IEnumerable<Meal> meals)
+        {
+           context.Meals.RemoveRange(meals);
+        }
     }
 }
-        // public Meal? GetLastMealByUserId(string userId)
-        // {
-        //     var meals = context.Meals.Where(m => m.User.Id == userId).ToList();
-        //     if(meals.Count > 0)
-        //     {
-        //         return meals.Last();
-        //     }
-        //     else
-        //     {
-        //         return meals.FirstOrDefault();
-        //     }
-        // }
-

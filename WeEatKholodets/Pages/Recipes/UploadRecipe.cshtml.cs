@@ -11,14 +11,14 @@ namespace WeEatKholodets.Pages.Recipes
     [Authorize]
     public class UploadRecipeModel : PageModel
     {
-        private readonly ApplicationDbContext context;
+        private readonly IRecipeRepository recipeRepository;
 
         [BindProperty]
         public Recipe Recipe { get; set; } = null!;
 
-        public UploadRecipeModel(ApplicationDbContext context)
+        public UploadRecipeModel(IRecipeRepository recipeRepository)
         {
-            this.context = context;
+            this.recipeRepository = recipeRepository;
         }
         
         public void OnGet()
@@ -57,8 +57,8 @@ namespace WeEatKholodets.Pages.Recipes
                 }
             }
             Recipe.Photos = photos;
-            context.Recipes.Add(Recipe);
-            context.SaveChanges();
+            recipeRepository.AddRecipe(Recipe);
+            await recipeRepository.SaveAsync();
 
             return RedirectToPage("/WantToEat");
         }

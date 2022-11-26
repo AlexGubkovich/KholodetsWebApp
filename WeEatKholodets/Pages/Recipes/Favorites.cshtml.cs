@@ -12,10 +12,12 @@ namespace WeEatKholodets.Pages.Recipes
     public class FavoritesModel : PageModel
     {
         private readonly UserManager<User> userManager;
-        private readonly ApplicationDbContext context;
-        public FavoritesModel(UserManager<User> userManager, ApplicationDbContext context){
+        private readonly IRecipeRepository recipeRepository;
+        private readonly IUserRepository userRepository;
+        public FavoritesModel(UserManager<User> userManager, IUserRepository userRepository, IRecipeRepository recipeRepository){
             this.userManager = userManager;
-            this.context = context;
+            this.userRepository = userRepository;
+            this.recipeRepository = recipeRepository;
         }
 
         public List<Recipe> FavoriteRecipes { get; set; } = new List<Recipe>();
@@ -23,7 +25,7 @@ namespace WeEatKholodets.Pages.Recipes
         public async Task OnGetAsync()
         {
             var user = await userManager.GetUserAsync(HttpContext.User);
-            context.Users.Include(p => p.FavoriteRecipes).FirstOrDefault(p => p.Id == user.Id);
+            userRepository.GetUsers.Include(p => p.FavoriteRecipes).FirstOrDefault(p => p.Id == user.Id);
             if(user.FavoriteRecipes != null){
                 FavoriteRecipes = user.FavoriteRecipes.ToList();
             }
@@ -31,12 +33,12 @@ namespace WeEatKholodets.Pages.Recipes
 
         public async Task<IActionResult> OnPost(int recipeId)
         {
-            var recipe = context.Recipes.Find(recipeId);
+            var recipe = await recipeRepository.GetRecipeAsync(recipeId);
             if(recipe != null){
                 var user = await userManager.GetUserAsync(HttpContext.User);
-                context.Users.Include(p => p.FavoriteRecipes).FirstOrDefault(p => p.Id == user.Id);
-                user.FavoriteRecipes.Remove(recipe);
-                await context.SaveChangesAsync();
+                userRepository.GetUsers.Include(p => p.FavoriteRecipes).FirstOrDefault(p => p.Id == user.Id);
+                userRepository.RevoveFavoriteRecipe(recipe, user);
+                await userRepository.SaveAsync();
             }
 
             return RedirectToPage();

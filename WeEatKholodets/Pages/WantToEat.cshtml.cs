@@ -25,7 +25,7 @@ namespace WeEatKholodets.Pages
         public void OnGet()
         {
             var userId = userManager.GetUserId(User);
-            Meal? lastMeal = mealRepository.GetLastMealByUserId(userId);
+            Meal? lastMeal = mealRepository.GetMealsByUserId(userId).Last();
             if (lastMeal?.Date.Day == DateTime.Today.Day)
             {
                 DidCustomerEatToday = true;
@@ -34,7 +34,10 @@ namespace WeEatKholodets.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            await mealRepository.AddMealAsync(HttpContext.User);
+            User user = await userManager.GetUserAsync(HttpContext.User);
+            mealRepository.AddMealAsync(user);
+            await mealRepository.SaveAsync();
+
             return RedirectToPage();
         }
     }

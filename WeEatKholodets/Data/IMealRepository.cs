@@ -10,8 +10,9 @@ namespace WeEatKholodets.Data
 {
     public interface IMealRepository
     {
-        List<Meal>? GetMealsByUserId(string userId);
-        Task AddMealAsync(ClaimsPrincipal userId);
-        Meal? GetLastMealByUserId(string userId);
+        IQueryable<Meal> GetMeals { get; }
+        void AddMealAsync(User user);
+        IQueryable<Meal> GetMealsByUserId(string userId);
+        Task SaveAsync();
     }
 }

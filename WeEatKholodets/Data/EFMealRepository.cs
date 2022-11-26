@@ -13,44 +13,45 @@ namespace WeEatKholodets.Data
     public class EFMealRepository : IMealRepository
     {
         private readonly ApplicationDbContext context;
-        private readonly UserManager<User> userManager;
-        public EFMealRepository(ApplicationDbContext context, UserManager<User> userManager)
+
+        public EFMealRepository(ApplicationDbContext context)
         {
             this.context = context;
-            this.userManager = userManager;
         }
 
-        public async Task AddMealAsync(ClaimsPrincipal claimsPrincipal)
+        public IQueryable<Meal> GetMeals => context.Meals;
+
+        public void AddMealAsync(User user)
         {
             context.Meals.Add(new Meal
             {
                 Date = DateTime.Now,
-                User = await userManager.GetUserAsync(claimsPrincipal)
+                User =  user
             });
-            await context.SaveChangesAsync();
         }
-        public List<Meal>? GetMealsByUserId(string userId)
+
+        IQueryable<Meal> IMealRepository.GetMealsByUserId(string userId)
         {
             IQueryable<Meal> meals = context.Meals.Where(m => m.User.Id == userId);
-            return meals.ToList();
+            return meals;
         }
 
-        public Meal? GetLastMealByUserId(string userId)
+        public async Task SaveAsync()
         {
-            var meals = context.Meals.Where(m => m.User.Id == userId).ToList();
-            if(meals.Count > 0)
-            {
-                return meals.Last();
-            }
-            else
-            {
-                return meals.FirstOrDefault();
-            }
-        }
-
-        public List<Meal> GetAllMeals()
-        {
-            return context.Meals.ToList();
+            await context.SaveChangesAsync();
         }
     }
 }
+        // public Meal? GetLastMealByUserId(string userId)
+        // {
+        //     var meals = context.Meals.Where(m => m.User.Id == userId).ToList();
+        //     if(meals.Count > 0)
+        //     {
+        //         return meals.Last();
+        //     }
+        //     else
+        //     {
+        //         return meals.FirstOrDefault();
+        //     }
+        // }
+

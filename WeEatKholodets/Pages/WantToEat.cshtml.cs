@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 using WeEatKholodets.Data;
 using WeEatKholodets.Models;
 
@@ -22,21 +22,25 @@ namespace WeEatKholodets.Pages
 
         public bool DidCustomerEatToday = false;
 
+        public List<Meal> Meals { get; set; } = new List<Meal>();
+
         public void OnGet()
         {
             var userId = userManager.GetUserId(User);
-            var mealsCount = mealRepository.GetMealsByUserId(userId).Count();
+
             Meal? lastMeal;
+            var mealsCount = mealRepository.GetMealsByUserId(userId).Count();
             if(mealsCount > 0) {
                 lastMeal = mealRepository.GetMealsByUserId(userId).OrderBy(m => m.Date).Last();
             } else {
-                 lastMeal = mealRepository.GetMeals.FirstOrDefault();
+                lastMeal = null;
             }
-
-            if (lastMeal?.Date.Day == DateTime.Today.Day)
+            if (lastMeal != null && lastMeal?.Date.Day == DateTime.Today.Day)
             {
                 DidCustomerEatToday = true;
             }
+
+            Meals = mealRepository.GetMeals.OrderBy(m => m.Date).Take(20).Include(m => m.User).ToList();
         }
 
         public async Task<IActionResult> OnPostAsync()

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc.Razor;
 using WeEatKholodets.Data;
+using WeEatKholodets.Hubs;
 using WeEatKholodets.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,8 @@ builder.Services.AddTransient<IMealRepository, EFMealRepository>();
 builder.Services.AddTransient<IRecipeRepository, EFRecipeRepository>();
 builder.Services.AddTransient<IUserRepository, EFUserRepository>();
 builder.Services.AddScoped<IEmailSender, EmailService>();
+
+builder.Services.AddSignalR();
 
 builder.Services.AddIdentityAndAuthenticationConfig(builder.Configuration);
 
@@ -47,5 +50,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapHub<MealsHub>("/mealHub");
 
 app.Run();

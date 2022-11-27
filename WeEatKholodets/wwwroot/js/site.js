@@ -1,1 +1,1 @@
-﻿console.log('I am site.js file')
+﻿// console.log('I am site.js file')

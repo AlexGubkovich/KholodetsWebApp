@@ -6,19 +6,74 @@
 }
 
 @if(Model.DidCustomerEatToday != true){
-    <form method="post">
-        <button type="submit" class="btn btn-primary">@Localizer["I ate kholodets today"]</button>
-    </form>
-} else{
-    <div class="row d-flex justify-content-start">
+    <div class="row justify-content-sm-start">
         <div class="col-auto">
-            <button type="submit" class="btn btn-primary disabled">@Localizer["I ate kholodets today"]</button>
+            <form method="post">
+                <button id="sendButton" type="submit" class="btn btn-dark">@Localizer["I ate kholodets today"]</button>
+            </form>
+        </div>
+        <div class="col-auto d-flex align-items-center">
+            <img src="~/img/arrow-left.svg" alt="" srcset="">
+        </div>
+    </div>
+} else{
+    <div class="row d-flex justify-content-start mb-4">
+         <div class="col-auto mb-2">
+            <h3>@Localizer["You have already eaten kholodets"]</h3>
         </div>
         <div class="col-auto">
-            <h3>@Localizer["You have already eaten kholodets"]</h3>
+            <button type="submit" class="btn btn-success disabled">@Localizer["I ate kholodets today"]</button>
         </div>
     </div>
 }
+@if(Model.Meals.Count() > 0){
+    <hr/>
+    <h4 class="mb-3">@Localizer["Community"]</h4>
+}
+<div id="mealsList" class="vstack gap-2 col-md-5 mx-5">
+    @foreach (var item in Model.Meals)
+    {
+        <div class="row border rounded-2 border-dark">
+            <div class="col-auto d-flex justify-content-center align-items-center">
+                <p class="m-1">@item.User.Email @Localizer["had kholodets"]</p>
+            </div>
+            <div class="col-auto">
+                <p class="m-1 text-muted">@item.Date.ToString("g")</p>
+            </div>
+        </div>
+    }
+</div> 
+
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script>
+    "use strict";
+    
+    var connection = new signalR.HubConnectionBuilder().withUrl("/mealHub").build();
+
+    $('#sendButton').addClass("disable");
+
+    connection.on("ReceiveMeal", function (user) {
+        @* $('#gg').val('haha') *@
+        $('<div id="mealsList" class="vstack gap-2 col-md-5 mx-5"> <div class="row border rounded-2 border-dark"><div class="col-auto d-flex justify-content-center align-items-center"><p id="email" class="m-1"> @Localizer["had kholodets"]</p></div><div class="col-auto"><p id="date" class="m-1 text-muted"></p></div></div></div>')
+            .appendTo('#mealsList')
+        $('#date').val('haahh')
+    });
+
+    connection.start().then(function () {
+        $('#sendButton').removeClass("disable");
+    }).catch(function (err) {
+        return console.error(err.toString());
+    });
+
+    $('#sendButton').click(function(){
+        let user = '@Model.User.Identity!.Name!.ToString()'
+        connection.invoke("SendMeal", user).catch(function (err) {
+            return console.error(err.toString());
+        });
+    })
+</script>
+
 
 
 

@@ -74,6 +74,14 @@ msgctxt "Pages.WantToEat"
 msgid "IWantToEat"
 msgstr "Хочу есть"
 
+msgctxt "Pages.WantToEat"
+msgid "had kholodets"
+msgstr "сьел холодец"
+
+msgctxt "Pages.WantToEat"
+msgid "Community"
+msgstr "Комьюнити"
+
 msgctxt "Pages.About"
 msgid "About"
 msgstr "Обо мне"

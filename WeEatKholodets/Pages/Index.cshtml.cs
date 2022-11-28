@@ -14,10 +14,10 @@ namespace WeEatKholodets.Pages
             this.mealRepository = mealRepository;
             _logger = logger;
         }
-
-        public void OnGet()
+        [ResponseCache(Location =ResponseCacheLocation.Any, Duration =300)]
+        public IActionResult OnGet()
         {
-
+            return Page();
         }
     }
 }

@@ -13,9 +13,10 @@ namespace WeEatKholodets.Pages
         {
             _logger = logger;
         }
-
-        public void OnGet()
+        [ResponseCache(Location =ResponseCacheLocation.Any, Duration =300)]
+        public IActionResult OnGet()
         {
+            return Page();
         }
     }
 }

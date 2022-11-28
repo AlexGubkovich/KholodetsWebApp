@@ -15,9 +15,9 @@
             <div class="input-group md-3 mb-3">
                 <input asp-for="SearchString" type="text" class="form-control" placeholder='@Localizer["Search"]'
                     aria-label="Search" id="searchInput" aria-describedby="button-search">
-                <button class="btn btn-outline" type="button" id="button-search-clean"><img src="~/img/clear.svg"
+                <button class="btn btn-outline" type="button" id="button-search-clean"><img asp-append-version="true" src="~/img/clear.svg"
                         alt="Clear"></button>
-                <button class="btn btn-outline" type="submit" id="button-search"><img src="~/img/search.svg"
+                <button class="btn btn-outline" type="submit" id="button-search"><img asp-append-version="true" src="~/img/search.svg"
                         alt="Search"></button>
             </div>
         </form>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="col-2 ms-2">
                             <small class="text-muted">@recipe.viewCount</small>
-                            <img src="~/img/eye.svg" alt="" srcset="">
+                            <img asp-append-version="true" src="~/img/eye.svg" alt="" srcset="">
                         </div>
                     </div>
                 </div>

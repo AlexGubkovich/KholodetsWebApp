@@ -15,11 +15,11 @@
             <li class="nav-item col-3 d-flex align-items-center  ">
                 @if(Context.User.FindFirst("image")?.Value != null){
                     <a  class="nav-link text-dark text-nowrap p-0 py-1" asp-area="Identity" asp-page="/Account/Manage/Index" title='@Localizer["Manage"]'>
-                        <img src='@Context.User.FindFirst("image")?.Value' alt="avatar" class="rounded-circle img-fluid "  />
+                        <img asp-append-version="true" src='@Context.User.FindFirst("image")?.Value' alt="avatar" class="rounded-circle img-fluid "  />
                     </a>
                 } else {
                     <a  class="nav-link text-dark text-nowrap p-0 py-1 ms-3" asp-area="Identity" asp-page="/Account/Manage/Index" title='@Localizer["Manage"]'>
-                        <img src='~/img/gear.svg' alt="avatar" class=""  />
+                        <img asp-append-version="true" src='~/img/gear.svg' alt="avatar" class=""  />
                     </a>
                 }
             </li>

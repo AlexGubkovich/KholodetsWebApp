@@ -28,7 +28,7 @@
                             @foreach (var item in @Model.Images)
                             {
                                 <div class='carousel-item @(activeImage ? "active" : "") ratio' style="--bs-aspect-ratio: 80%;">
-                                    <img src="@item" class="d-block w-100 rounded-3" alt="...">
+                                    <img asp-append-version="true" src="@item" class="d-block w-100 rounded-3" alt="...">
                                 </div>
                                 activeImage = false;
                             }

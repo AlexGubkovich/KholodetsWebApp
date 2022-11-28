@@ -4,26 +4,28 @@
 @{
     ViewData["Title"] = Localizer["About"];
 }
-<h1 class="">@Localizer["WTF?"]</h1>
-
-<div class="row mt-4 mb-4">
-    <div class="col-8">
-        <p style="text-indent: 20px;">
-            @Localizer["About me"]
-        </p>
-    </div>
-</div>
-<div class="row mb-1">
-    <div class="col">
-        <p class="fs-3 text ">@Localizer["Literally me"]:</p>
-    </div>
-</div>
-<div class="row px-5">
-    <div class="">
-        <div class="ratio ratio-16x9">
-            <iframe autoplay src="~/videos/Kholodets.mp4?autoplay=0" title="YouTube video" height="200" allowfullscreen sandbox></iframe>
+<cache>
+    <h1 class="">@Localizer["WTF?"]</h1>
+    <div class="row mt-4 mb-4">
+        <div class="col-8">
+            <p style="text-indent: 20px;">
+                @Localizer["About me"]
+            </p>
         </div>
     </div>
-</div>
+    <div class="row mb-1">
+        <div class="col">
+            <p class="fs-3 text ">@Localizer["Literally me"]:</p>
+        </div>
+    </div>
+    <div class="row px-5">
+        <div class="">
+            <div class="ratio ratio-16x9">
+                <iframe autoplay src="~/videos/Kholodets.mp4?autoplay=0" title="YouTube video" height="200" allowfullscreen sandbox></iframe>
+            </div>
+        </div>
+    </div>
+</cache>
+
 
 

@@ -10,10 +10,10 @@
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </head>
     <body class="gradient-custom">
-        <cache>
-            <header>
-                <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-5" style="background-color: #9ec5fe;">
-                    <div class="container">
+        <header>
+            <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-5" style="background-color: #9ec5fe;">
+                <div class="container">
+                    <cache>
                         <a class="navbar-brand" asp-area="" asp-page="/Index">
                             <img asp-append-version="true" src="~/horror_spooky_scary_eyeball_halloween_icon_229388.ico" width="25" height="25" class="d-inline-block align-text-top" alt="" srcset="">
                             WeEatKholodets
@@ -31,12 +31,12 @@
                                     <a class="nav-link text-dark" asp-area="" asp-page="/Recipes/Index">@Localizer["Recipes"]</a>
                                 </li>
                             </ul>
-                            <partial name="_LoginPartial" />
-                        </div>
+                    </cache>
+                        <partial name="_LoginPartial" />
                     </div>
-                </nav>
-            </header>
-        </cache>
+                </div>
+            </nav>
+        </header>
     
         <script  asp-append-version="true" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" 
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"></script>

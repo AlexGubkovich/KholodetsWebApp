@@ -60,7 +60,7 @@ namespace WeEatKholodets.Pages.Recipes
             recipeRepository.AddRecipe(Recipe);
             await recipeRepository.SaveAsync();
 
-            return RedirectToPage("/WantToEat");
+            return RedirectToPage("/Recipes/Index");
         }
     }
 }

@@ -362,3 +362,16 @@ FodyWeavers.xsd
 .vscode/launch.json
 .vscode
 WeEatKholodets/.vscode/
+WeEatKholodets/Properties/serviceDependencies.kholodets77777778 - Web Deploy.json
+WeEatKholodets/Properties/ServiceDependencies/kholodets77777778 - Zip Deploy/profile.arm.json
+WeEatKholodets/Properties/ServiceDependencies/kholodets77777778 - Web Deploy1/profile.arm.json
+WeEatKholodets/Properties/ServiceDependencies/kholodets77777778 - Web Deploy1/mssql2.arm.json
+WeEatKholodets/Properties/ServiceDependencies/kholodets77777778 - Web Deploy/profile.arm.json
+WeEatKholodets/Properties/ServiceDependencies/kholodets77777778 - Web Deploy/mssql2.arm.json
+WeEatKholodets/Properties/ServiceDependencies/kholodets77777778 - FTP/profile.arm.json
+WeEatKholodets/Properties/serviceDependencies.kholodets77777778 - Web Deploy1.json
+WeEatKholodets/.config/dotnet-tools.json
+WeEatKholodets/.vscode/launch.json
+WeEatKholodets/.vscode/tasks.json
+WeEatKholodets/.vscode/launch.json
+WeEatKholodets/.vscode/tasks.json

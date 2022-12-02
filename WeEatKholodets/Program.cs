@@ -47,13 +47,14 @@ app.UseStaticFiles(new StaticFileOptions()
         ctx.Context.Response.Headers.Add("Cache-Control", "public,max-age=600");
     }
 });
-app.UseRequestLocalization();
 
 app.UseSession();
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseRequestLocalization();
 
 app.MapRazorPages();
 app.MapHub<MealsHub>("/mealHub");

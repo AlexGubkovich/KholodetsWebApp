@@ -40,7 +40,7 @@ namespace WeEatKholodets.Pages
                 DidCustomerEatToday = true;
             }
 
-            Meals = mealRepository.GetMeals.OrderBy(m => m.Date).Take(20).Include(m => m.User).ToList();
+            Meals = mealRepository.GetMeals.OrderByDescending(m => m.Date).Take(20).Include(m => m.User).ToList();
         }
 
         public async Task<IActionResult> OnPostAsync()

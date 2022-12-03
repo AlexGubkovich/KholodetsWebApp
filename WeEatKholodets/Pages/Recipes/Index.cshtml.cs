@@ -15,7 +15,7 @@ namespace WeEatKholodets.Pages.Recipes
            this.recipeRepository = recipeRepository;
         }
 
-        public List<RecipeShort> RecipeShorts { get; set; } = default!;
+        public List<RecipeShort> RecipeShorts { get; set; } = new List<RecipeShort>();
 
         [BindProperty(SupportsGet = true)]
         public string? SearchString { get; set; }
@@ -39,18 +39,22 @@ namespace WeEatKholodets.Pages.Recipes
                     IsTop = false;
                 }
                 RecipeShorts = await recipeShorts
-                    .OrderByDescending(p => p.ViewCount)
-                    .Skip((recipePage - 1) * PageSize)
-                    .Take(PageSize)
-                    .Select(r => new RecipeShort(r.Id, r.Title, r.Description, r.ViewCount))
-                    .ToListAsync();
-                PagingInfo = new PagingInfo{
+                .OrderByDescending(p => p.ViewCount)
+                .Skip((recipePage - 1) * PageSize)
+                .Take(PageSize)
+                .Select(r => new RecipeShort(r.Id, r.Title, r.Description, r.ViewCount))
+                .ToListAsync();
+                PagingInfo = new PagingInfo()
+                {
                     CurrentPage = recipePage,
                     ItemsPerPage = PageSize,
-                    TotalItems = string.IsNullOrEmpty(SearchString) ? recipeRepository.GetRecipes.Count() : 
-                        recipeRepository.GetRecipes
-                            .Where(s => s.Title.Contains(SearchString)).Count()
+                    TotalItems = string.IsNullOrEmpty(SearchString) ? recipeRepository.GetRecipes.Count() :
+                    recipeRepository.GetRecipes
+                        .Where(s => s.Title.Contains(SearchString)).Count()
                 };
+            } else
+            {
+                PagingInfo = new PagingInfo() { CurrentPage = recipePage, ItemsPerPage = PageSize };
             }
         }
     }

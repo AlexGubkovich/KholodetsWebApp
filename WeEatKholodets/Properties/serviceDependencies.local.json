@@ -9,9 +9,10 @@
     },
     "mssql1": {
       "secretStore": "AzureKeyVault",
-      "resourceId": null,
-      "type": "mssql.local",
-      "connectionId": "ConnectionStrings:DefaultConnection"
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/khvolodets-server/databases/kholodets_database",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DefaultConnection",
+      "dynamicId": null
     }
   }
 }

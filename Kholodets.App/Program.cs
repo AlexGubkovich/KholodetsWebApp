@@ -1,9 +1,11 @@
+using Azure.Identity;
+using Kholodets.App;
+using Kholodets.Core.Hubs;
+using Kholodets.Core.IRepository;
+using Kholodets.Core.Repository;
+using Kholodets.Core.Services;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc.Razor;
-using Azure.Identity;
-using Kholodets.App.Data;
-using Kholodets.App.Services;
-using Kholodets.App.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 

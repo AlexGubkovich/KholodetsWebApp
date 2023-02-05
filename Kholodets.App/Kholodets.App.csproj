@@ -10,7 +10,6 @@
     <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.2.2" />
     <PackageReference Include="Azure.Identity" Version="1.8.0" />
     <PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.4.0" />
-    <PackageReference Include="MailKit" Version="3.4.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.9" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
     <PackageReference Include="OrchardCore.Localization.Core" Version="1.0.0" />
@@ -25,6 +24,11 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Kholodets.Core\Kholodets.Core.csproj" />
+    <ProjectReference Include="..\..\Kholodets.Data\Kholodets.Data.csproj" />
   </ItemGroup>
 
 </Project>

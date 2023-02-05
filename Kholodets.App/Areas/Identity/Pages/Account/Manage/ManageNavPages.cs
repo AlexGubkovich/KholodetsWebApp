@@ -1,6 +1,5 @@
 #nullable disable
 
-using System;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Kholodets.App.Areas.Identity.Pages.Account.Manage

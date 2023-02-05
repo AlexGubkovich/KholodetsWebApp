@@ -1,13 +1,9 @@
 #nullable disable
 
-using System;
-using System.Threading.Tasks;
-using Kholodets.App.Models;
-using Microsoft.AspNetCore.Authorization;
+using Kholodets.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 
 namespace Kholodets.App.Areas.Identity.Pages.Account
 {

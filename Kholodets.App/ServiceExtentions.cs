@@ -1,15 +1,14 @@
-using System.Globalization;
-using System.Security.Claims;
-using Kholodets.App.Data;
-using Kholodets.App.Models;
+using Kholodets.Data;
+using Kholodets.Data.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
-namespace Kholodets.App.Services
+namespace Kholodets.App
 {
-    public static class ConfigureService
+    public static class ServiceExtentions
     {
         public static void AddDbConfig(this IServiceCollection services, ConfigurationManager configuration)
         {

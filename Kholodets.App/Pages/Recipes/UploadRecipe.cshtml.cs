@@ -1,10 +1,8 @@
-using Kholodets.App.Data;
-using Kholodets.App.Models;
+using Kholodets.Core.IRepository;
+using Kholodets.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
 
 namespace Kholodets.App.Pages.Recipes
 {

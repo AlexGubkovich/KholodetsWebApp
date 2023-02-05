@@ -1,12 +1,8 @@
-using System.Security.Claims;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Moq;
-using Kholodets.App.Data;
-using Kholodets.App.Models;
 using Kholodets.App.Pages;
+using Kholodets.Core.IRepository;
+using Kholodets.Data.Models;
+using Microsoft.AspNetCore.Identity;
+using Moq;
 
 namespace WeEatKholodets.Tests;
 

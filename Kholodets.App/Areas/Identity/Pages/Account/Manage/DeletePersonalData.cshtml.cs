@@ -1,16 +1,10 @@
-// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-#nullable disable
-
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.Threading.Tasks;
-using Kholodets.App.Data;
-using Kholodets.App.Models;
+using Kholodets.Core.IRepository;
+using Kholodets.Data.Models;
+using MessagePack;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 
 namespace Kholodets.App.Areas.Identity.Pages.Account.Manage
 {
@@ -34,14 +28,14 @@ namespace Kholodets.App.Areas.Identity.Pages.Account.Manage
         }
 
         [BindProperty]
-        public InputModel Input { get; set; }
+        public InputModel Input { get; set; } = null!;
 
         public class InputModel
         {
             [Required]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
-            public string Password { get; set; }
+            public string Password { get; set; } = null!;
         }
 
         public bool RequirePassword { get; set; }

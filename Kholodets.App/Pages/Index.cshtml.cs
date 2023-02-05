@@ -1,4 +1,4 @@
-﻿using Kholodets.App.Data;
+﻿using Kholodets.Core.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 

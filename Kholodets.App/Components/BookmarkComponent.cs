@@ -1,5 +1,5 @@
-using Kholodets.App.Data;
-using Kholodets.App.Models;
+using Kholodets.Core.IRepository;
+using Kholodets.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

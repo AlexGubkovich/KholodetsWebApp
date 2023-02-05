@@ -1,0 +1,19 @@
+﻿using Kholodets.App.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Kholodets.App.Data
+{
+    public interface IMealRepository
+    {
+        IQueryable<Meal> GetMeals { get; }
+        void AddMeal(User user);
+        IQueryable<Meal> GetMealsByUserId(string userId);
+        void RemoveRangeMeals(IEnumerable<Meal> meals);
+        Task SaveAsync();
+    }
+}

@@ -27,8 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Kholodets.Core\Kholodets.Core.csproj" />
-    <ProjectReference Include="..\..\Kholodets.Data\Kholodets.Data.csproj" />
+    <ProjectReference Include="..\Kholodets.Core\Kholodets.Core.csproj" />
+    <ProjectReference Include="..\Kholodets.Data\Kholodets.Data.csproj" />
   </ItemGroup>
 
 </Project>
